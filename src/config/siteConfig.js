@@ -570,15 +570,15 @@ export const siteConfig = reactive({
   // ATENÇÃO: desligado de propósito. O servidor de avaliações usa o perfil do Google
   // configurado no ambiente; só ligue depois de conectar o perfil do Arlley Abelha,
   // para não exibir avaliações de outro escritório.
-  googleReviews: {
-    enabled: false,
-    showOnLinkBio: true,
-    endpoint: '/api/google-reviews',
-    title: 'Avaliações no Google',
-    description: 'Conheça as avaliações compartilhadas sobre o atendimento do escritório.',
-    profileUrl: '',
-    writeReviewUrl: '',
-  },
+googleReviews: {
+  enabled: true,
+  showOnLinkBio: true,
+  endpoint: '/api/google-reviews',
+  title: 'Avaliações no Google',
+  description: 'Veja o que os clientes dizem sobre o atendimento do escritório Arlley Abelha Advocacia.',
+  profileUrl: 'https://www.google.com/maps/search/?api=1&query=Arlley+Abelha+Advocacia+Betim+MG',
+  writeReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJR4zfmEvDpgAR-jyMfr7R_hY',
+},
 
   about: {
     title: 'Assistência jurídica humanizada para pessoas privadas de liberdade e seus familiares',
