@@ -28,8 +28,8 @@
 
       <h2>1. Quem é o responsável</h2>
       <p>
-        O controlador dos dados é <strong>{{ controller }}</strong><template v-if="p.document"> (documento {{ p.document }})</template>,
-        {{ c.brand.oab }}, com endereço em {{ c.contact.address }}, {{ c.contact.city }}, CEP {{ c.contact.zipCode }}.
+        O controlador dos dados é <strong>{{ controller }}</strong><template v-if="p.document"> ({{ p.document }})</template>,
+        {{ c.brand.oab }}, com endereço em {{ c.contact.address }}, {{ c.contact.city }}<template v-if="c.contact.zipCode">, CEP {{ c.contact.zipCode }}</template>.
       </p>
 
       <h2>2. Quais dados tratamos e como</h2>

@@ -1,22 +1,32 @@
 import { reactive } from 'vue'
 import { originSuffix } from '../composables/useOrigin.js'
 
+// ═════════════════════════════════════════════════════════════════════════
+// Conteúdo reunido de:
+//   • https://arlleyabelha.com.br/  (site principal, com CNPJ e razão social)
+//   • https://abelha.adv.br/        (site secundário, mesmo conteúdo, outro WhatsApp)
+//   • Hotmart: Mapa da Inquirição - Arlley Abelha
+//
+// ⚠ ITENS MARCADOS COM "CONFIRMAR" não constavam nos sites e precisam ser
+//   preenchidos/validados pelo escritório antes de publicar.
+// ═════════════════════════════════════════════════════════════════════════
+
 export const siteConfig = reactive({
   brand: {
-    officeName: 'Advocacia Fernanda Natale',
-    shortName: 'Fernanda Natale',
-    professionalName: 'Fernanda Natale',
-    oab: 'OAB/MG 158.406',
-    logo: '/LogoPng3.png',
-    initials: 'FN',
+    officeName: 'Arlley Abelha Advocacia',
+    shortName: 'Arlley Abelha',
+    professionalName: 'Arlley Abelha',
+    oab: 'OAB/MG 101.840',
+    logo: '/LogoPng04.png',
+    initials: 'AA',
     favicon: '/LogoPng3.png',
-    developer: 'Max Sistemas',
+    developer: 'Kallebe Max',
   },
 
   theme: {
     primary: '#7A6252',
-    primaryDark: '#523E32',
-    secondary: '#C5A059',
+    primaryDark: '#6D090A',
+    secondary: '#6D090A',
     accent: '#E6D5C3',
     surface: '#FFFFFF',
     surfaceSoft: '#F7F4F0',
@@ -24,35 +34,41 @@ export const siteConfig = reactive({
   },
 
   hero: {
-    eyebrow: 'Fernanda Natale | Advocacia',
-    title: 'Advocacia especializada em Direito das Famílias e Sucessões e Direito Previdenciário.',
-    highlight: 'seus direitos',
-    subtitle: 'Atuação jurídica com atendimento online e presencial, oferecendo orientação e acompanhamento responsável. Atuação em todo o território nacional.',
-    video: '/IMG-VIDEOS/Teste.mp4',
-    backgroundImage: '/media/Banner3.png',
-    ctaLabel: 'Entre em contato',
+    eyebrow: 'Arlley Abelha | Advocacia',
+    title: 'Precisando de um especialista em execução penal?',
+    highlight: 'execução penal',
+    subtitle: 'Assistência jurídica para pessoas privadas de liberdade e seus familiares, com atendimento humanizado. Atuamos em todo o Brasil.',
+    video: '/IMG-VIDEOS/Teste.mp4', // CONFIRMAR: trocar pelo vídeo do Arlley
+    backgroundImage: '/media/Banner3.png', // CONFIRMAR: trocar pela imagem do novo site
+    ctaLabel: 'Fale com um especialista agora',
     highlights: [
-      'Direito das Famílias e Sucessões',
-      'Direito Previdenciário',
-      'Atuação Nacional',
+      'Execução penal',
+      'Atendimento humanizado',
+      'Atuação em todo o Brasil',
     ],
   },
 
   contact: {
-    phone: '(37) 9952-6966',
-    phoneRaw: '553799526966',
-    whatsapp: '553799526966',
-    whatsappMessage: 'Olá! Vim pelo site da Advocacia Fernanda Natale e gostaria de receber orientação jurídica.',
-    email: '',
-    address: 'Rua Pio XII, n. 26, sala 201, Centro',
-    city: 'Formiga/MG',
-    zipCode: '35570-130',
-    businessHours: '',
+    // WhatsApp principal: o do site arlleyabelha.com.br.
+    // O site abelha.adv.br usa outro número: (31) 97264-8424 → 5531972648424.
+    // Para dividir os atendimentos entre os dois, use quiz.whatsapp ou o campo
+    // "whatsapp" em cada opção do quiz.
+    phone: '(31) 99655-4528',
+    phoneRaw: '5531996554528',
+    whatsapp: '5531996554528',
+    whatsappMessage: 'Olá, vim pelo site, preciso de um especialista em execução penal.',
+    email: '', // CONFIRMAR: os sites exibiam um e-mail de exemplo (email@email.com.br)
+    address: 'Avenida Presidente Kubitschek, 474, sala 101, 1º andar, Centro',
+    city: 'Betim/MG',
+    zipCode: '', // CONFIRMAR: CEP não consta nos sites
+    businessHours: '', // CONFIRMAR
     emergencyPhone: '',
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Rua+Pio+XII+26+sala+201+Centro+Formiga+MG+35570-130',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Avenida+Presidente+Kubitschek+474+Centro+Betim+MG',
     mapZoom: 16,
-    latitude: -20.4623,
-    longitude: -45.4272,
+    // CONFIRMAR: coordenadas aproximadas do centro de Betim/MG. Ajuste para a
+    // posição exata do escritório (clique com o botão direito no Google Maps).
+    latitude: -19.9677,
+    longitude: -44.1984,
   },
 
   booking: {
@@ -60,38 +76,63 @@ export const siteConfig = reactive({
     modes: ['Presencial', 'Online'],
   },
 
+  // Listas de documentos exibidas no site. "approved: false" = ainda não revisada
+  // pelo advogado. Revise e mude para true (com reviewedBy/reviewedAt) para publicar.
   documentChecklists: [
     {
-      area: 'Direito das Famílias',
+      area: 'Pedidos de progressão de regime',
       approved: false,
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Documento de identificação do interessado',
-        'Certidões e documentos pessoais relacionados à situação familiar',
-        'Documentos e comprovantes relacionados à demanda jurídica',
+        'Documento de identificação de quem está fazendo o contato',
+        'Nome completo e, se souber, número de matrícula da pessoa presa',
+        'Número do processo de execução ou da guia de execução, se houver',
+        'Sentença, acórdão ou atestado de pena, se disponíveis',
       ],
     },
     {
-      area: 'Direito de Sucessões',
+      area: 'Relatórios processuais',
       approved: false,
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Documento de identificação dos interessados',
-        'Certidão de óbito, quando aplicável',
-        'Documentos relacionados aos bens e à situação sucessória',
+        'Número do processo de execução, se houver',
+        'Nome completo da pessoa presa e unidade prisional',
+        'Documentos do processo que a família já possua',
       ],
     },
     {
-      area: 'Direito Previdenciário',
+      area: 'Habilitação para casamento de pessoas privadas de liberdade',
       approved: false,
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Documento de identificação',
-        'Carteira de trabalho e documentos relacionados à vida profissional',
-        'Documentos previdenciários e comprovantes relacionados à solicitação',
+        'Documentos de identificação dos dois noivos',
+        'Certidões de nascimento ou de casamento anterior com averbação, conforme o caso',
+        'Informações da unidade prisional onde a pessoa está',
+      ],
+    },
+    {
+      area: 'Defesa em processo administrativo disciplinar',
+      approved: false,
+      reviewedBy: '',
+      reviewedAt: '',
+      items: [
+        'Comunicado ou documento que informe a falta atribuída',
+        'Data do fato e unidade prisional',
+        'Número do processo de execução, se houver',
+      ],
+    },
+    {
+      area: 'Pedidos de livramento condicional',
+      approved: false,
+      reviewedBy: '',
+      reviewedAt: '',
+      items: [
+        'Número do processo de execução, se houver',
+        'Sentença, acórdão ou atestado de pena, se disponíveis',
+        'Informações sobre trabalho, estudo e comportamento, se a família tiver',
       ],
     },
     {
@@ -100,73 +141,52 @@ export const siteConfig = reactive({
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Documento de identificação do interessado',
-        'Documentos relacionados à questão jurídica apresentada',
-        'Comprovantes, notificações ou outros registros disponíveis',
-      ],
-    },
-    {
-      area: 'Orientação em Direito das Famílias',
-      approved: false,
-      reviewedBy: '',
-      reviewedAt: '',
-      items: [
-        'Documento de identificação do interessado',
-        'Certidões e documentos pertinentes ao caso',
-        'Documentos complementares relacionados à demanda',
-      ],
-    },
-    {
-      area: 'Orientação Previdenciária',
-      approved: false,
-      reviewedBy: '',
-      reviewedAt: '',
-      items: [
-        'Documento de identificação do interessado',
-        'Documentos relativos ao histórico previdenciário',
-        'Comprovantes e registros relacionados à solicitação',
+        'Documento de identificação de quem está fazendo o contato',
+        'Dados da pessoa presa (nome completo e unidade prisional)',
+        'Qualquer documento do processo que a família já possua',
       ],
     },
   ],
 
   professionalProfiles: [
     {
-      slug: 'fernanda-natale',
-      registration: '',
-      education: [],
+      slug: 'arlley-abelha',
+      registration: 'OAB/MG 101.840',
+      education: [], // CONFIRMAR: formação, especializações
       areas: [
-        'Direito das Famílias e Sucessões',
-        'Direito Previdenciário',
+        'Execução penal',
+        'Advocacia criminal',
       ],
-      biography: 'Fernanda Natale atua nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário, oferecendo atendimento jurídico online e presencial, com atuação em todo o território nacional.',
+      // CONFIRMAR: o "mais de 20 anos" vem da descrição do curso na Hotmart.
+      biography: 'Arlley Abelha é advogado inscrito na OAB/MG sob o número 101.840 e dirige um escritório de assistência jurídica para pessoas privadas de liberdade e seus familiares. Atua em execução penal, com atendimento humanizado e atuação em todo o Brasil, e tem mais de 20 anos de experiência em advocacia criminal.',
       email: '',
       whatsapp: '',
     },
   ],
 
   social: {
-    instagram: 'https://www.instagram.com/fernandanataleadvocacia/',
+    instagram: '', // CONFIRMAR: o Instagram não consta nos sites
   },
 
   linkBio: {
-    title: 'Fernanda Natale',
-    eyebrow: 'Advocacia',
-    description: 'Atuação nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário. Atendimento online e presencial, com atuação em todo o território nacional.',
+    title: 'Arlley Abelha',
+    eyebrow: 'Advocacia · Execução Penal',
+    description: 'Assistência jurídica para pessoas privadas de liberdade e seus familiares, com atendimento humanizado. Atuação em todo o Brasil.',
     coverImage: '',
     coverAlt: '',
-    teamTitle: 'Entre em contato com a advogada',
-    whatsappMessage: 'Olá! Vim pelo link da bio da Advocacia Fernanda Natale e gostaria de receber orientação jurídica.',
+    teamTitle: 'Fale com o advogado',
+    whatsappMessage: 'Olá! Vim pelo link da bio e preciso de um especialista em execução penal.',
     // Mostra no máximo 3 pessoas de team. Para ocultar uma, use linkBio: false nela.
     quickLinks: [
       {
-        label: 'Conheça nosso escritório',
-        description: 'Advocacia em Direito das Famílias e Sucessões e Direito Previdenciário.',
+        label: 'Conheça o escritório',
+        description: 'Assistência jurídica em execução penal, com atuação em todo o Brasil.',
         href: '#inicio',
         icon: 'mdi-web',
       },
       {
         label: 'Entre em contato',
-        description: 'Atendimento online e presencial em todo o território nacional.',
+        description: 'Atendimento online e presencial em Betim/MG.',
         href: '#contato',
         icon: 'mdi-message-text-outline',
       },
@@ -174,33 +194,32 @@ export const siteConfig = reactive({
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // PRODUTOS E SERVIÇOS DIGITAIS (mentoria, curso, e-book, consultoria etc.)
+  // PRODUTOS E SERVIÇOS DIGITAIS
   // enabled: false  → nada aparece no site nem no link na bio.
   // enabled: true   → cada item vira um banner horizontal com título e botão.
-  // Cada item pode ser escondido do site ou da bio com showOnSite / showOnLinkBio.
-  // Imagens: coloque em /public e informe o caminho (ex.: '/media/mentoria.jpg').
+  // Imagens: coloque em /public e informe o caminho (ex.: '/media/mapa.jpg').
   // Proporção recomendada da arte: 1200 x 480 px (horizontal).
-  // O botão aceita link externo (https://...), âncora do site (#contato) ou
-  // WhatsApp (use whatsappMessage em vez de url para abrir uma conversa).
   // ─────────────────────────────────────────────────────────────────────────
   products: {
     enabled: true,
     showOnSite: true,
     showOnLinkBio: true,
-    eyebrow: 'Conteúdo e orientação',
-    title: 'Mentorias e materiais',
-    description: 'Aprofunde seu conhecimento com conteúdos preparados pela advogada.',
+    eyebrow: 'Para advogados',
+    title: 'Mapa da Inquirição',
+    description: 'Material de Arlley Abelha para advogados que atuam em audiências.',
     items: [
       {
-        title: 'Mentoria para advogados',
-        description: 'Acompanhamento individual para estruturar sua advocacia. (Texto de exemplo: substitua pelo real.)',
-        image: '/media/produto-exemplo.svg',
-        imageAlt: 'Arte de divulgação da mentoria',
-        badge: 'Novo',
-        price: '',
+        title: 'Mapa da Inquirição',
+        description: 'Aprenda a identificar os 4 perfis de testemunhas e a fazer as perguntas certas para conduzir audiências com mais confiança.',
+        // CONFIRMAR: imagem hospedada na Hotmart (quadrada, pode ser cortada no banner).
+        // Ideal: baixar, criar uma arte horizontal 1200x480 e salvar em /public/media/.
+        image: '/media/mapa.png',
+        imageAlt: 'Capa do curso Mapa da Inquirição',
+        badge: 'Para advogados',
+        price: '', // CONFIRMAR: preço atual na Hotmart
         buttonLabel: 'Saiba mais',
-        url: '',
-        whatsappMessage: 'Olá! Vi a mentoria no site e gostaria de saber mais.',
+        url: 'https://hotmart.com/pt-br/marketplace/produtos/mapa-da-inquiricao/M102229646W',
+        whatsappMessage: 'Olá! Vi o Mapa da Inquirição no site e gostaria de saber mais.',
         external: true,
         showOnSite: true,
         showOnLinkBio: true,
@@ -211,33 +230,32 @@ export const siteConfig = reactive({
   // ─────────────────────────────────────────────────────────────────────────
   // QUESTIONÁRIO DE AJUDA (página /ajuda)
   // enabled: false  → a página e os botões deixam de existir.
-  // enabled: true   → botão no site e na bio levam ao quiz; no final, as respostas
-  //                   são enviadas ao WhatsApp já organizadas.
-  // type da pergunta: 'single' (uma opção) | 'multiple' (várias) | 'text' (linha)
-  //                   | 'textarea' (texto longo) | 'phone' (telefone com DDD)
-  // required: true obriga a responder. help: explicação didática abaixo da pergunta.
+  // type da pergunta: 'single' | 'multiple' | 'text' | 'textarea' | 'phone'
+  // showIf mostra a pergunta só se a resposta anterior combinar (usa "value").
+  // Em options, { label, value, whatsapp }: com whatsapp preenchido, quem escolhe
+  // aquela opção é encaminhado para esse número.
   // ─────────────────────────────────────────────────────────────────────────
   quiz: {
     enabled: true,
     showOnSite: true,
     showOnLinkBio: true,
     buttonLabel: 'Responder questionário',
-    buttonDescription: 'Leva 2 minutos e agiliza seu atendimento',
-    pageTitle: 'Vamos entender o seu caso',
-    pageIntro: 'Responda algumas perguntas rápidas. No final, enviamos tudo organizado para o WhatsApp da advogada, para que o atendimento comece mais rápido.',
-    estimatedTime: '2 minutos',
-    privacyNote: 'Não inclua senhas, números de documentos ou dados sensíveis. Você só envia o que quiser: nada é salvo em servidor.',
+    buttonDescription: 'Leva cerca de 3 minutos e agiliza seu atendimento',
+    pageTitle: 'Vamos entender o caso',
+    pageIntro: 'Responda algumas perguntas rápidas sobre a situação da pessoa que está cumprindo pena. No final, enviamos tudo organizado para o WhatsApp do escritório, para que o atendimento comece mais rápido.',
+    estimatedTime: '3 minutos',
+    privacyNote: 'Se tiver o número do processo, pode informar. Não envie senhas nem fotos de documentos. Nada é salvo em servidor: você só envia o que quiser.',
     whatsapp: '', // vazio: usa contact.whatsapp
-    requireConsent: true, // true: o botão de envio só libera após o aceite
+    requireConsent: true,
     consentText: 'Concordo em compartilhar estas informações com o escritório pelo WhatsApp para receber orientação.',
-    messageIntro: 'Olá! Respondi o questionário do site da Advocacia Fernanda Natale. Seguem minhas respostas:',
+    messageIntro: 'Olá! Respondi o questionário do site de Arlley Abelha Advocacia. Seguem minhas respostas:',
     finishTitle: 'Tudo pronto!',
     finishText: 'Confira o resumo e toque no botão para enviar suas respostas pelo WhatsApp.',
     finishButton: 'Enviar respostas pelo WhatsApp',
     questions: [
       {
         id: 'nome',
-        label: 'Nome',
+        label: 'Nome de quem está falando',
         title: 'Como podemos te chamar?',
         help: 'Usamos seu nome apenas para começar a conversa de forma mais pessoal.',
         type: 'text',
@@ -246,131 +264,149 @@ export const siteConfig = reactive({
         icon: 'mdi-account-outline',
       },
       {
-        // Cada opção pode ser texto simples ou um objeto:
-        //   { label: 'Texto exibido', value: 'chave-curta', whatsapp: '5537999999999' }
-        // • value: chave usada nas regras "showIf" das perguntas seguintes.
-        // • whatsapp: se preenchido, as respostas desta pessoa vão para ESTE número
-        //   (ex.: previdenciário para uma advogada, famílias para outra).
-        //   Vazio = usa quiz.whatsapp ou contact.whatsapp.
+        id: 'quem',
+        label: 'Quem está pedindo ajuda',
+        title: 'Quem está pedindo ajuda?',
+        help: 'Muitos contatos vêm de familiares. A pessoa presa também pode ser atendida.',
+        type: 'single',
+        required: true,
+        icon: 'mdi-account-group-outline',
+        options: [
+          { label: 'Sou familiar ou companheiro(a) de uma pessoa presa', value: 'familiar' },
+          { label: 'Sou a própria pessoa (liberdade condicional ou regime aberto)', value: 'proprio' },
+          { label: 'Sou advogado(a) ou outro profissional', value: 'profissional' },
+        ],
+      },
+      {
         id: 'area',
-        label: 'Área do assunto',
+        label: 'Assunto',
         title: 'Sobre qual assunto você precisa de ajuda?',
-        help: 'Escolha a opção que mais se aproxima. Se não tiver certeza, marque “Não sei”: a advogada ajuda a identificar.',
+        help: 'Escolha o que mais se aproxima. Se não tiver certeza, marque a última opção: o advogado ajuda a identificar.',
         type: 'single',
         required: true,
         icon: 'mdi-scale-balanced',
         options: [
-          { label: 'Direito das Famílias (divórcio, pensão, guarda)', value: 'familias', whatsapp: '' },
-          { label: 'Sucessões (inventário, herança, testamento)', value: 'sucessoes', whatsapp: '' },
-          { label: 'Previdenciário (aposentadoria, benefícios INSS)', value: 'previdenciario', whatsapp: '' },
-          { label: 'Não sei / outro assunto', value: 'outro' },
+          { label: 'Pedido de progressão de regime', value: 'progressao' },
+          { label: 'Relatório do processo (entender a situação)', value: 'relatorio' },
+          { label: 'Casamento com pessoa privada de liberdade', value: 'casamento' },
+          { label: 'Defesa em processo disciplinar (falta na unidade)', value: 'pad' },
+          { label: 'Pedido de livramento condicional', value: 'livramento' },
+          { label: 'Outro assunto de execução penal / não sei', value: 'outro' },
+        ],
+      },
+      {
+        id: 'regime',
+        label: 'Regime atual',
+        title: 'Em qual regime a pessoa está?',
+        help: 'Se não souber, marque “Não sei”. O advogado confere no processo.',
+        type: 'single',
+        required: true,
+        icon: 'mdi-home-lock-outline',
+        options: [
+          'Fechado',
+          'Semiaberto',
+          'Aberto ou prisão domiciliar',
+          'Livramento condicional',
+          'Ainda aguardando julgamento (sem condenação definitiva)',
+          'Não sei',
         ],
       },
       // ── Perguntas que só aparecem conforme a resposta anterior (showIf) ──
       {
-        id: 'beneficio',
-        label: 'Benefício',
-        title: 'Qual benefício você quer entender?',
-        help: 'Isso nos ajuda a separar os documentos certos do INSS.',
+        id: 'pena',
+        label: 'Pena e tempo cumprido',
+        title: 'Você sabe o tempo da pena e quanto já foi cumprido?',
+        help: 'Uma ideia aproximada já ajuda a avaliar a situação. Pode deixar em branco.',
+        type: 'text',
+        placeholder: 'Ex.: pena de 8 anos, cumpridos cerca de 3',
+        required: false,
+        icon: 'mdi-calendar-range',
+        showIf: { question: 'area', is: ['progressao', 'livramento', 'relatorio'] },
+      },
+      {
+        id: 'pad_fase',
+        label: 'Fase do processo disciplinar',
+        title: 'Em que fase está o processo disciplinar?',
+        help: 'A falta grave pode afetar os benefícios, então o prazo importa.',
         type: 'single',
         required: true,
-        icon: 'mdi-file-certificate-outline',
-        showIf: { question: 'area', is: ['previdenciario'] },
+        icon: 'mdi-gavel',
+        showIf: { question: 'area', is: ['pad'] },
         options: [
-          'Aposentadoria',
-          'Auxílio por incapacidade (doença ou acidente)',
-          'Pensão por morte',
-          'Benefício assistencial (BPC/LOAS)',
-          'Meu pedido foi negado pelo INSS',
-          'Não sei qual',
+          'Foi informada uma falta, mas o procedimento ainda não começou',
+          'O procedimento disciplinar está em andamento',
+          'Já houve decisão reconhecendo a falta',
+          'Não sei',
         ],
       },
       {
-        id: 'falecimento',
-        label: 'Tempo desde o falecimento',
-        title: 'O falecimento aconteceu há quanto tempo?',
-        help: 'Existem prazos para abrir o inventário. Saber a data aproximada já ajuda a avaliar a urgência.',
+        id: 'casamento_fase',
+        label: 'Etapa do casamento',
+        title: 'Em que etapa está o casamento?',
+        help: 'Assim sabemos por onde começar a organização dos documentos.',
         type: 'single',
         required: true,
-        icon: 'mdi-calendar-clock-outline',
-        showIf: { question: 'area', is: ['sucessoes'] },
+        icon: 'mdi-ring',
+        showIf: { question: 'area', is: ['casamento'] },
         options: [
-          'Menos de 2 meses',
-          'Entre 2 e 12 meses',
-          'Mais de 1 ano',
-          'Ainda não houve falecimento (quero me planejar)',
+          'Ainda não iniciamos',
+          'Já temos alguns documentos',
+          'Já iniciamos a habilitação no cartório',
         ],
       },
       {
-        id: 'filhos',
-        label: 'Filhos menores envolvidos',
-        title: 'Há filhos menores de idade envolvidos?',
-        help: 'Isso influencia o caminho possível (por exemplo, divórcio em cartório ou na Justiça).',
-        type: 'single',
-        required: true,
-        icon: 'mdi-account-child-outline',
-        showIf: { question: 'area', is: ['familias'] },
-        options: ['Sim', 'Não', 'Não se aplica'],
+        id: 'processo',
+        label: 'Número do processo',
+        title: 'Você tem o número do processo de execução?',
+        help: 'Opcional. Se tiver, ajuda a localizar o andamento. Se não tiver, tudo bem.',
+        type: 'text',
+        placeholder: 'Número do processo (opcional)',
+        required: false,
+        icon: 'mdi-file-document-outline',
       },
       {
-        id: 'momento',
-        label: 'Situação atual',
-        title: 'Em que ponto está a sua situação?',
-        help: 'Isso ajuda a entender se existe algum prazo correndo.',
+        id: 'urgencia',
+        label: 'Audiência, prazo ou decisão próxima',
+        title: 'Há audiência, prazo ou decisão próxima?',
+        help: 'Isso ajuda a equipe a priorizar casos com data marcada.',
         type: 'single',
         required: true,
-        icon: 'mdi-timeline-clock-outline',
+        icon: 'mdi-alarm',
         options: [
-          { label: 'Ainda estou me informando', value: 'informando' },
-          { label: 'Já tenho um problema, mas nada foi aberto', value: 'problema' },
-          { label: 'Já existe processo ou pedido em andamento', value: 'andamento' },
-          { label: 'Recebi uma notificação ou tenho prazo próximo', value: 'prazo' },
+          { label: 'Sim, nos próximos dias', value: 'dias' },
+          { label: 'Sim, nas próximas semanas', value: 'semanas' },
+          { label: 'Não que eu saiba', value: 'nao' },
+          { label: 'Não sei', value: 'nsei' },
         ],
       },
       {
         id: 'data_prazo',
-        label: 'Data do prazo ou audiência',
-        title: 'Você sabe a data limite ou da audiência?',
+        label: 'Data da audiência ou do prazo',
+        title: 'Você sabe a data?',
         help: 'Se tiver a data, informe. Se não souber, pode deixar em branco.',
         type: 'text',
         placeholder: 'Ex.: 25/12 ou “em 10 dias”',
         required: false,
-        icon: 'mdi-alarm',
-        showIf: { question: 'momento', is: ['prazo'] },
-      },
-      {
-        id: 'documentos',
-        label: 'Documentos disponíveis',
-        title: 'Quais documentos você já tem em mãos?',
-        help: 'Pode marcar mais de uma. Não precisa enviar nada agora, só nos dizer o que existe.',
-        type: 'multiple',
-        required: false,
-        icon: 'mdi-file-document-multiple-outline',
-        options: [
-          'Documento de identificação',
-          'Certidões (casamento, nascimento, óbito)',
-          'Documentos do INSS / CNIS',
-          'Comprovantes e contratos',
-          'Ainda não separei nada',
-        ],
+        icon: 'mdi-calendar-alert',
+        showIf: { question: 'urgencia', is: ['dias', 'semanas'] },
       },
       {
         id: 'atendimento',
         label: 'Formato preferido',
         title: 'Como prefere ser atendido?',
-        help: 'O escritório atende presencialmente em Formiga/MG e online em todo o Brasil.',
+        help: 'O escritório fica em Betim/MG e atende online em todo o Brasil.',
         type: 'single',
         required: true,
         icon: 'mdi-video-outline',
-        options: ['Online (vídeo ou WhatsApp)', 'Presencial', 'Tanto faz'],
+        options: ['Online (WhatsApp ou vídeo)', 'Presencial em Betim/MG', 'Tanto faz'],
       },
       {
         id: 'relato',
         label: 'Resumo do caso',
-        title: 'Quer contar em poucas palavras o que aconteceu?',
+        title: 'Quer contar em poucas palavras a situação?',
         help: 'Opcional. Um resumo curto já ajuda muito. Os detalhes ficam para a conversa.',
         type: 'textarea',
-        placeholder: 'Ex.: Meu pai faleceu e não sei como começar o inventário...',
+        placeholder: 'Ex.: Meu irmão está no regime fechado e queremos saber se já pode pedir progressão...',
         required: false,
         icon: 'mdi-text-box-outline',
       },
@@ -404,18 +440,16 @@ export const siteConfig = reactive({
 
   // ─────────────────────────────────────────────────────────────────────────
   // PRIVACIDADE (LGPD) E COOKIES
-  // privacy.enabled → página /privacidade e link no rodapé.
-  // O texto da página é montado a partir destes dados e do que está ligado no site
-  // (quiz, avaliações, analytics). Deve ser revisado pela advogada antes de publicar.
-  // analytics.enabled: false → nenhum cookie de medição, nenhum aviso de cookies.
-  // analytics.enabled: true  → aparece o aviso de cookies; GA4/Meta Pixel só carregam
-  //                            depois que a pessoa aceita.
+  // analytics.enabled: true + ga4Id/metaPixelId → aparece o aviso de cookies.
+  // O site antigo arlleyabelha.com.br usava Google Tag Manager (GTM-MHKLJ74R).
+  // Para continuar medindo, informe aqui o ID do GA4 (G-XXXXXXXXXX) que alimenta
+  // essa conta, e/ou o ID do Pixel da Meta.
   // ─────────────────────────────────────────────────────────────────────────
   privacy: {
     enabled: true,
-    lastUpdate: '18/11/2026',
-    controllerName: '', // vazio: usa brand.officeName
-    document: '', // CPF/CNPJ do escritório (opcional)
+    lastUpdate: '19/11/2026',
+    controllerName: 'Arlley Abelha Sociedade Individual de Advocacia',
+    document: 'CNPJ 52.547.721/0001-10',
     contactEmail: '', // vazio: usa contact.email; se também vazio, usa o WhatsApp
     retentionNote: 'Mantemos as informações pelo tempo necessário para o atendimento solicitado e para cumprir obrigações legais e profissionais.',
   },
@@ -429,98 +463,93 @@ export const siteConfig = reactive({
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // ARTIGOS (blog) → páginas /blog e /blog/<slug>
-  // enabled: false → a seção, as páginas e o menu somem.
-  // body aceita blocos: { type: 'p' | 'h2' | 'ul', text | items }.
-  // Os artigos abaixo são MODELOS informativos: revise antes de publicar.
+  // ARTIGOS (blog) → /blog e /blog/<slug>
+  // Os artigos abaixo são MODELOS informativos escritos a partir dos serviços
+  // do site. CONFIRMAR: o advogado deve revisar tudo antes de publicar.
   // ─────────────────────────────────────────────────────────────────────────
   blog: {
     enabled: true,
     title: 'Artigos',
     eyebrow: 'Informação jurídica',
-    description: 'Conteúdos informativos sobre Direito das Famílias, Sucessões e Previdenciário.',
+    description: 'Conteúdos informativos sobre execução penal para pessoas presas e seus familiares.',
     showOnHome: true,
-    disclaimer: 'Conteúdo informativo, de caráter geral. Não substitui a análise do seu caso por advogado(a).',
+    disclaimer: 'Conteúdo informativo, de caráter geral. Não substitui a análise do caso por advogado(a).',
     posts: [
       {
-        slug: 'inventario-extrajudicial-quem-pode-fazer',
-        title: 'Inventário extrajudicial: quem pode fazer em cartório?',
-        excerpt: 'Entenda em que situações o inventário pode ser feito em cartório, quais são os requisitos gerais e quando o caminho judicial é necessário.',
-        date: '2026-11-10',
-        category: 'Sucessões',
-        area: 'direito-de-sucessoes',
+        slug: 'progressao-de-regime-como-funciona',
+        title: 'Progressão de regime: como funciona o cumprimento da pena?',
+        excerpt: 'Entenda como a pena é cumprida de forma progressiva e o que costuma ser analisado no pedido de progressão de regime.',
+        date: '2026-11-12',
+        category: 'Progressão de regime',
+        area: 'progressao-de-regime',
         readingTime: '3 min',
         image: '',
         body: [
-          { type: 'p', text: 'Quando uma pessoa falece, os bens deixados precisam ser formalmente transferidos aos herdeiros. Esse procedimento se chama inventário e pode acontecer de duas formas: em cartório (extrajudicial) ou no Judiciário.' },
-          { type: 'h2', text: 'Quando o inventário pode ser feito em cartório' },
-          { type: 'p', text: 'De modo geral, a via extrajudicial é possível quando todos os herdeiros são maiores e capazes e estão de acordo quanto à divisão dos bens. O procedimento é feito por escritura pública e exige a assistência de advogado.' },
+          { type: 'p', text: 'No Brasil, a pena privativa de liberdade é cumprida de forma progressiva. Conforme o tempo cumprido e o comportamento da pessoa, ela pode passar para um regime mais brando: por exemplo, do fechado para o semiaberto e do semiaberto para o aberto.' },
+          { type: 'h2', text: 'O que costuma ser analisado' },
           { type: 'ul', items: [
-            'Todos os herdeiros concordam com a partilha;',
-            'Todos são maiores de idade e capazes;',
-            'Há documentação básica do falecido e dos bens;',
-            'Há advogado acompanhando o procedimento.',
+            'Quanto da pena já foi cumprido (o percentual varia conforme o crime e a situação de cada pessoa);',
+            'O comportamento durante o cumprimento da pena;',
+            'Outros requisitos previstos em lei para cada caso.',
           ] },
-          { type: 'h2', text: 'Quando pode ser necessário o inventário judicial' },
-          { type: 'p', text: 'Divergência entre herdeiros, presença de herdeiros menores ou incapazes e outras particularidades podem exigir o caminho judicial. A existência de testamento também merece análise específica, pois as regras podem variar.' },
-          { type: 'h2', text: 'Prazos' },
-          { type: 'p', text: 'A lei prevê prazo para abrir o inventário, e a legislação estadual pode prever multa sobre o imposto de transmissão em caso de atraso. Por isso, é recomendável buscar orientação logo após o falecimento.' },
+          { type: 'h2', text: 'Quem decide' },
+          { type: 'p', text: 'O pedido é analisado pelo juízo da execução penal, que avalia a documentação e o histórico do processo.' },
+          { type: 'h2', text: 'Por que acompanhar o processo de perto' },
+          { type: 'p', text: 'Datas e percentuais dependem de cálculos que mudam com fatores como remição e faltas disciplinares. Um relatório do processo ajuda a família a entender o que esperar. Cada caso exige análise individual.' },
         ],
       },
       {
-        slug: 'cnis-o-que-e-e-como-conferir',
-        title: 'CNIS: o que é e por que conferir antes de pedir a aposentadoria',
-        excerpt: 'O CNIS reúne seus vínculos e contribuições no INSS. Saiba o que ele mostra e por que conferi-lo antes de qualquer pedido.',
-        date: '2026-11-03',
-        category: 'Previdenciário',
-        area: 'direito-previdenciario',
+        slug: 'falta-grave-o-que-e-e-por-que-a-defesa-importa',
+        title: 'Falta grave na prisão: o que é e por que a defesa importa',
+        excerpt: 'A pessoa presa pode responder a procedimento disciplinar. Veja por que a falta grave preocupa e por que a defesa técnica é importante.',
+        date: '2026-11-05',
+        category: 'Processo disciplinar',
+        area: 'defesa-processo-disciplinar',
         readingTime: '3 min',
         image: '',
         body: [
-          { type: 'p', text: 'O Cadastro Nacional de Informações Sociais (CNIS) é o registro do INSS com os vínculos de trabalho e as contribuições de cada pessoa. É com base nele que o tempo de contribuição costuma ser analisado.' },
-          { type: 'h2', text: 'O que conferir' },
+          { type: 'p', text: 'Quando a pessoa presa é acusada de descumprir regras da unidade prisional, pode responder a um procedimento disciplinar. As faltas são classificadas como leves, médias ou graves.' },
+          { type: 'h2', text: 'Por que a falta grave preocupa' },
           { type: 'ul', items: [
-            'Se todos os vínculos de emprego aparecem;',
-            'Se as datas de início e de fim estão corretas;',
-            'Se existem períodos sem registro, indicadores ou pendências;',
-            'Se as contribuições como autônomo ou facultativo constam.',
+            'Pode afetar a concessão de benefícios;',
+            'Pode levar à regressão de regime;',
+            'Pode reduzir dias já remidos;',
+            'Pode alterar a data usada para calcular novos benefícios.',
           ] },
-          { type: 'h2', text: 'Como consultar' },
-          { type: 'p', text: 'O extrato pode ser acessado no aplicativo ou no site Meu INSS, com a conta gov.br. Ao encontrar lacunas ou erros, em geral é possível pedir a correção apresentando documentos, como carteira de trabalho, contratos e comprovantes.' },
-          { type: 'h2', text: 'Por que isso importa' },
-          { type: 'p', text: 'Um registro incompleto pode alterar a análise do direito ao benefício. Como as regras dependem do histórico de cada pessoa, a avaliação individual é o caminho mais seguro.' },
+          { type: 'h2', text: 'A importância da defesa técnica' },
+          { type: 'p', text: 'O procedimento deve respeitar o direito de defesa. Uma defesa técnica e bem fundamentada busca evitar a aplicação da falta ou reduzir seus efeitos. Não há garantia de resultado: cada caso depende das provas e da análise de quem decide.' },
+          { type: 'h2', text: 'O que a família pode fazer' },
+          { type: 'p', text: 'Reúna as informações recebidas (comunicado, datas e unidade prisional) e procure orientação o quanto antes, pois existem prazos.' },
         ],
       },
       {
-        slug: 'pensao-alimenticia-como-e-definida',
-        title: 'Pensão alimentícia: como o valor é definido?',
-        excerpt: 'Não existe um percentual único. Veja os critérios usados para fixar e rever a pensão alimentícia.',
-        date: '2026-10-27',
-        category: 'Famílias',
-        area: 'direito-das-familias',
+        slug: 'livramento-condicional-o-que-e',
+        title: 'Livramento condicional: o que é e como funciona',
+        excerpt: 'A lei permite que parte da pena seja cumprida em liberdade. Entenda os requisitos gerais e as condições do benefício.',
+        date: '2026-10-29',
+        category: 'Livramento condicional',
+        area: 'livramento-condicional',
         readingTime: '2 min',
         image: '',
         body: [
-          { type: 'p', text: 'Uma dúvida comum é se a pensão alimentícia tem um valor ou percentual padrão. Não tem. O valor é definido em acordo ou por decisão judicial, de acordo com as circunstâncias de cada família.' },
-          { type: 'h2', text: 'Os critérios principais' },
-          { type: 'p', text: 'A lei considera a necessidade de quem recebe e a possibilidade de quem paga, buscando um equilíbrio entre os dois. Despesas como alimentação, moradia, saúde, educação e lazer costumam ser levadas em conta.' },
-          { type: 'h2', text: 'O valor pode mudar?' },
-          { type: 'p', text: 'Sim. Se a situação financeira de quem paga ou as necessidades de quem recebe se alteram, é possível pedir a revisão do valor, por acordo ou pela via judicial.' },
-          { type: 'h2', text: 'Em caso de atraso' },
-          { type: 'p', text: 'Quando a pensão deixa de ser paga, existem instrumentos legais para cobrar os valores em atraso. Cada situação exige análise, por isso vale buscar orientação especializada.' },
+          { type: 'p', text: 'O livramento condicional permite que a pessoa cumpra o restante da pena em liberdade, desde que preencha os requisitos da lei e respeite as condições impostas pela Justiça.' },
+          { type: 'h2', text: 'Requisitos gerais' },
+          { type: 'ul', items: [
+            'Cumprimento de parte da pena (a fração varia conforme o caso);',
+            'Comportamento satisfatório durante a execução;',
+            'Outros requisitos previstos em lei.',
+          ] },
+          { type: 'h2', text: 'Durante o livramento' },
+          { type: 'p', text: 'A pessoa deve cumprir as condições fixadas pelo juízo. O descumprimento pode levar à revogação do benefício.' },
+          { type: 'h2', text: 'Como o pedido é analisado' },
+          { type: 'p', text: 'O pedido é analisado pelo juízo da execução penal, com base no processo. Por isso, conferir a situação atual da pena é o primeiro passo.' },
         ],
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // CONVERSÃO
-  // originInMessage: acrescenta "(Origem: instagram / bio)" às mensagens de WhatsApp,
-  //   usando UTM da URL (utm_source, utm_medium, utm_campaign) ou o site de origem.
-  //   Exemplo de link para o Instagram: https://seusite.com.br/?utm_source=instagram&utm_medium=bio
-  // floatingWhatsapp: botão fixo de WhatsApp. A mensagem muda conforme a seção
-  //   visível na tela (sectionMessages) e conforme a página (áreas, artigos).
-  // sectionMessages: chave = id da seção do site; valor = mensagem pré-escrita.
+  // CONVERSÃO (origem UTM na mensagem + botão fixo de WhatsApp por seção)
   // ─────────────────────────────────────────────────────────────────────────
   conversion: {
     originInMessage: true,
@@ -528,132 +557,180 @@ export const siteConfig = reactive({
       enabled: true,
     },
     sectionMessages: {
-      areas: 'Olá! Estava vendo as áreas de atuação no site e gostaria de orientação.',
-      produtos: 'Olá! Vi as mentorias e materiais no site e gostaria de saber mais.',
-      equipe: 'Olá! Conheci a equipe pelo site e gostaria de conversar com a advogada.',
-      artigos: 'Olá! Li os artigos do site e tenho uma dúvida sobre o meu caso.',
+      areas: 'Olá! Estava vendo os serviços de execução penal no site e gostaria de orientação.',
+      produtos: 'Olá! Vi o Mapa da Inquirição no site e gostaria de saber mais.',
+      equipe: 'Olá! Conheci o escritório pelo site e gostaria de falar com o advogado.',
+      artigos: 'Olá! Li os artigos do site e tenho uma dúvida sobre um caso de execução penal.',
       avaliacoes: 'Olá! Vi as avaliações do escritório e gostaria de atendimento.',
-      contato: 'Olá! Vim pela seção de contato do site e gostaria de atendimento.',
+      contato: 'Olá! Vim pela seção de contato do site e preciso de um especialista em execução penal.',
     },
   },
 
   // As notas e avaliações são obtidas pelo servidor; nunca preencha notas fictícias.
+  // ATENÇÃO: desligado de propósito. O servidor de avaliações usa o perfil do Google
+  // configurado no ambiente; só ligue depois de conectar o perfil do Arlley Abelha,
+  // para não exibir avaliações de outro escritório.
   googleReviews: {
-    enabled: true,
+    enabled: false,
     showOnLinkBio: true,
     endpoint: '/api/google-reviews',
     title: 'Avaliações no Google',
-    description: 'Conheça as avaliações compartilhadas sobre o atendimento da Advocacia Fernanda Natale.',
+    description: 'Conheça as avaliações compartilhadas sobre o atendimento do escritório.',
     profileUrl: '',
     writeReviewUrl: '',
   },
 
   about: {
-    title: 'Advocacia com compromisso, responsabilidade e atenção aos seus direitos',
-    photo: '/media/Equipe5.png',
-    photoAlt: 'Advocacia Fernanda Natale',
-    text: 'A Advocacia Fernanda Natale atua nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário. Com atendimento online e presencial, o escritório oferece orientação jurídica e acompanhamento responsável, atendendo clientes em todo o território nacional. O compromisso é proporcionar um atendimento pautado pela ética, transparência e atenção às necessidades de cada cliente.',
-    subtitle: 'Atendimento jurídico online e presencial, com atuação nacional.',
+    title: 'Assistência jurídica humanizada para pessoas privadas de liberdade e seus familiares',
+    photo: '/media/banners.png', // CONFIRMAR: trocar pela foto do escritório/advogado
+    photoAlt: 'Arlley Abelha Advocacia',
+    // CONFIRMAR: o número de processos muda com o tempo. Atualize ou remova a frase final.
+    text: 'Somos um escritório de assistência jurídica para pessoas que estão privadas de liberdade. Com um atendimento humanizado, lutamos pelos direitos do recluso e de seus familiares. O escritório é dirigido por Arlley Abelha, advogado ativo na OAB/MG sob o número 101.840, atualmente ativo em 1.387 processos.',
+    subtitle: 'Execução penal com atendimento humanizado e atuação em todo o Brasil.',
     cards: [
-      {
-        icon: 'fa-solid fa-scale-balanced',
-        title: 'Segurança jurídica',
-        desc: 'Orientação jurídica responsável para auxiliar na proteção dos seus direitos.',
-      },
       {
         icon: 'fa-solid fa-handshake-angle',
         title: 'Atendimento humanizado',
-        desc: 'Atendimento próximo e individualizado, respeitando as necessidades de cada cliente.',
+        desc: 'Atendimento próximo, que acolhe a pessoa presa e a sua família.',
       },
       {
         icon: 'fa-solid fa-gavel',
-        title: 'Atuação jurídica',
-        desc: 'Acompanhamento e orientação nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário.',
+        title: 'Defesa técnica',
+        desc: 'Atuação técnica na execução penal para resguardar os direitos do reeducando.',
       },
       {
-        icon: 'fa-solid fa-laptop',
-        title: 'Atendimento acessível',
-        desc: 'Atendimento online e presencial, com atuação em todo o território nacional.',
+        icon: 'fa-solid fa-file-lines',
+        title: 'Clareza para a família',
+        desc: 'Relatórios que explicam a situação do processo de forma clara e objetiva.',
+      },
+      {
+        icon: 'fa-solid fa-earth-americas',
+        title: 'Atuação em todo o Brasil',
+        desc: 'Atendimento online e presencial, com escritório em Betim/MG.',
       },
     ],
   },
 
   practiceAreas: [
     {
-      slug: 'direito-das-familias',
+      slug: 'progressao-de-regime',
       page: true,
-      title: 'Direito das Famílias',
-      description: 'Atuação jurídica em questões relacionadas ao Direito das Famílias, com orientação e acompanhamento de acordo com as particularidades de cada situação.',
-      icon: 'fa-solid fa-people-roof',
-      pageTitle: 'Advogada de Direito das Famílias em Formiga/MG e online',
-      intro: 'Questões de família costumam envolver emoção e decisões importantes. O atendimento busca explicar cada etapa com clareza, apresentar os caminhos possíveis e acompanhar o que for necessário, de forma ética e respeitosa.',
+      title: 'Pedidos de progressão de regime',
+      description: 'O sistema prisional estabelece o cumprimento da pena de forma progressiva: conforme o tempo cumprido e o comportamento, a pessoa pode passar para um regime mais brando, como do fechado para o semiaberto e do semiaberto para o aberto.',
+      icon: 'fa-solid fa-stairs',
+      pageTitle: 'Pedido de progressão de regime: advogado de execução penal em Betim/MG e todo o Brasil',
+      intro: 'A progressão de regime permite que a pena seja cumprida de forma mais branda quando a lei autoriza. O escritório analisa o processo, verifica os requisitos e acompanha o pedido até a decisão.',
       topics: [
-        'Divórcio e dissolução de união estável',
-        'Pensão alimentícia (fixação, revisão e execução)',
-        'Guarda e regime de convivência',
-        'Partilha de bens do casal',
-        'Reconhecimento de paternidade',
+        'Análise do tempo de pena cumprido e dos requisitos',
+        'Pedido de progressão do regime fechado para o semiaberto',
+        'Pedido de progressão do regime semiaberto para o aberto',
+        'Acompanhamento do andamento e das decisões',
       ],
       faq: [
         {
-          question: 'O divórcio pode ser feito em cartório?',
-          answer: 'Em regra, sim, quando há acordo entre os cônjuges e não há filhos menores ou incapazes nem gestação em curso. Nos demais casos, costuma ser necessário o caminho judicial. A advogada analisa a sua situação para indicar a via adequada.',
+          question: 'O que é progressão de regime?',
+          answer: 'É a passagem da pessoa condenada para um regime de cumprimento de pena mais brando, por exemplo do fechado para o semiaberto e do semiaberto para o aberto, de acordo com o tempo cumprido e o comportamento.',
         },
         {
-          question: 'A pensão alimentícia tem valor fixo?',
-          answer: 'Não. O valor é definido por acordo ou por decisão judicial, considerando a necessidade de quem recebe e a possibilidade de quem paga. Ele também pode ser revisto se as circunstâncias mudarem.',
+          question: 'Toda pessoa presa tem direito à progressão?',
+          answer: 'A lei prevê a progressão quando os requisitos são cumpridos, como o tempo de pena e o comportamento. Os critérios variam conforme o crime e a situação de cada pessoa, por isso é necessário analisar o processo.',
         },
       ],
     },
     {
-      slug: 'direito-de-sucessoes',
+      slug: 'relatorios-processuais',
       page: true,
-      title: 'Direito de Sucessões',
-      description: 'Orientação jurídica em questões relacionadas ao Direito das Sucessões, com atenção aos direitos e interesses envolvidos em cada caso.',
-      icon: 'fa-solid fa-scale-balanced',
-      pageTitle: 'Advogada de Sucessões, inventário e herança em Formiga/MG e online',
-      intro: 'Após a perda de um familiar, é comum surgirem dúvidas sobre bens, prazos e documentos. O atendimento orienta sobre o procedimento adequado e acompanha o inventário e a partilha com transparência.',
+      title: 'Relatórios processuais',
+      description: 'Muitas vezes os familiares não conseguem entender a situação atual e futura do processo. O relatório permite compreender, de forma clara e objetiva, os benefícios a que o reeducando tem direito.',
+      icon: 'fa-solid fa-file-lines',
+      pageTitle: 'Relatório do processo de execução penal: entenda a situação da pena',
+      intro: 'O relatório processual traduz o processo para uma linguagem clara, para que a família saiba onde o caso está e o que pode acontecer nos próximos passos.',
       topics: [
-        'Inventário judicial e extrajudicial',
-        'Partilha de bens e herança',
-        'Testamento e planejamento sucessório',
-        'Doações e adiantamento de herança',
-        'Questões entre herdeiros',
+        'Situação atual do processo de execução',
+        'Benefícios a que a pessoa pode ter direito e previsão de datas',
+        'Explicação em linguagem clara para os familiares',
       ],
       faq: [
         {
-          question: 'Existe prazo para abrir o inventário?',
-          answer: 'A lei processual prevê que o inventário seja iniciado em até dois meses após o falecimento e concluído nos doze meses seguintes, com possibilidade de prorrogação. A legislação estadual também pode prever multa sobre o imposto de transmissão em caso de atraso. Por isso, vale buscar orientação logo.',
+          question: 'Para quem serve o relatório processual?',
+          answer: 'Para familiares e para a própria pessoa que cumpre pena e quer entender o andamento do processo e as possibilidades de benefícios, sem depender de termos técnicos.',
         },
         {
-          question: 'Quem são os herdeiros necessários?',
-          answer: 'São os descendentes, os ascendentes e o cônjuge (e, conforme o caso, o companheiro). A ordem e a participação de cada um dependem da situação familiar e dos bens, o que exige análise individual.',
+          question: 'O relatório garante a concessão de benefícios?',
+          answer: 'Não. Ele explica a situação e as possibilidades. A concessão de qualquer benefício depende da análise do juízo da execução, conforme os requisitos da lei.',
         },
       ],
     },
     {
-      slug: 'direito-previdenciario',
+      slug: 'habilitacao-para-casamento',
       page: true,
-      title: 'Direito Previdenciário',
-      description: 'Orientação e acompanhamento jurídico em demandas relacionadas ao Direito Previdenciário, considerando as particularidades de cada solicitação.',
-      icon: 'fa-solid fa-file-shield',
-      pageTitle: 'Advogada Previdenciarista: aposentadoria e benefícios do INSS, online e em Formiga/MG',
-      intro: 'As regras da Previdência dependem do histórico de cada pessoa. O atendimento analisa vínculos e contribuições, explica as alternativas e acompanha o pedido ou o recurso, administrativo ou judicial.',
+      title: 'Habilitação para casamento de pessoas privadas de liberdade',
+      description: 'O sonho do casamento muitas vezes é deixado de lado pela dificuldade e burocracia. O escritório se estruturou para realizá-lo, com apoio processual, documental e pessoal.',
+      icon: 'fa-solid fa-ring',
+      pageTitle: 'Casamento com pessoa privada de liberdade: habilitação e apoio completo',
+      intro: 'Casar com uma pessoa que está presa envolve burocracia e etapas específicas. O escritório oferece apoio processual, documental e pessoal para que o casamento aconteça.',
       topics: [
-        'Aposentadorias e análise de tempo de contribuição',
-        'Auxílio por incapacidade temporária ou permanente',
-        'Pensão por morte',
-        'Benefício assistencial (BPC/LOAS)',
-        'Recursos e revisão de benefícios negados ou concedidos',
+        'Orientação sobre a documentação necessária',
+        'Habilitação para o casamento',
+        'Organização do ato junto à unidade prisional',
+        'Apoio processual quando necessário',
       ],
       faq: [
         {
-          question: 'O que é o CNIS e por que ele é importante?',
-          answer: 'O Cadastro Nacional de Informações Sociais reúne vínculos e contribuições registrados no INSS. Ele é a base para analisar o tempo de contribuição, e pode ser consultado pelo aplicativo ou site Meu INSS. Erros ou lacunas costumam precisar de comprovação por documentos.',
+          question: 'Uma pessoa presa pode se casar?',
+          answer: 'É possível. Há etapas e burocracia próprias, e o escritório auxilia em todo o caminho, com apoio processual, documental e pessoal.',
         },
         {
-          question: 'O INSS negou meu pedido. Ainda tenho como contestar?',
-          answer: 'Em muitos casos, sim. Normalmente existe um prazo para recurso administrativo, em geral de 30 dias, e também pode haver a via judicial. Como os prazos correm, procure orientação o quanto antes.',
+          question: 'Quais documentos são necessários?',
+          answer: 'Em geral, documentos de identificação e certidões dos noivos, além do que o cartório e a unidade prisional exigirem. A lista varia conforme o caso, e o escritório orienta cada etapa.',
+        },
+      ],
+    },
+    {
+      slug: 'defesa-processo-disciplinar',
+      page: true,
+      title: 'Defesa em processo administrativo disciplinar',
+      description: 'Quando a pessoa presa é acusada de infringir uma norma, pode receber falta leve, média ou grave. A falta grave impede o usufruto de benefícios, por isso a defesa técnica e eficaz é importante.',
+      icon: 'fa-solid fa-shield-halved',
+      pageTitle: 'Defesa em processo disciplinar no presídio: falta grave e seus efeitos',
+      intro: 'A falta grave pode impedir o acesso a benefícios previstos em lei. Uma defesa técnica busca evitar a falta ou reduzir seus efeitos, resguardando os direitos do reeducando.',
+      topics: [
+        'Defesa em procedimento disciplinar na unidade prisional',
+        'Acompanhamento de faltas leves, médias e graves',
+        'Atuação para resguardar benefícios do reeducando',
+      ],
+      faq: [
+        {
+          question: 'O que é falta grave?',
+          answer: 'É a infração disciplinar mais séria no cumprimento da pena. Ela pode afetar benefícios, levar à regressão de regime e reduzir dias remidos, entre outros efeitos.',
+        },
+        {
+          question: 'Por que a defesa é importante?',
+          answer: 'Porque o procedimento deve respeitar o direito de defesa, e uma defesa técnica busca evitar a aplicação da falta ou reduzir suas consequências. Não é possível garantir resultado, pois cada caso depende das provas e da decisão.',
+        },
+      ],
+    },
+    {
+      slug: 'livramento-condicional',
+      page: true,
+      title: 'Pedidos de livramento condicional',
+      description: 'A lei permite que a pessoa presa cumpra parte do restante da pena em liberdade.',
+      icon: 'fa-solid fa-lock-open',
+      pageTitle: 'Pedido de livramento condicional: cumprir parte da pena em liberdade',
+      intro: 'O livramento condicional permite cumprir parte do restante da pena em liberdade, quando os requisitos da lei são atendidos. O escritório analisa o processo e acompanha o pedido.',
+      topics: [
+        'Análise dos requisitos do livramento condicional',
+        'Elaboração e acompanhamento do pedido',
+        'Orientação sobre as condições durante o livramento',
+      ],
+      faq: [
+        {
+          question: 'O que é livramento condicional?',
+          answer: 'É o benefício que permite à pessoa presa cumprir parte do restante da pena em liberdade, desde que preencha os requisitos legais e cumpra as condições fixadas pela Justiça.',
+        },
+        {
+          question: 'Quais são os requisitos?',
+          answer: 'De modo geral, é preciso cumprir parte da pena (a fração varia conforme o caso), ter comportamento satisfatório e atender aos demais requisitos da lei. O advogado analisa o processo para indicar se o pedido é viável.',
         },
       ],
     },
@@ -661,14 +738,14 @@ export const siteConfig = reactive({
       slug: 'atendimento-online',
       page: false,
       title: 'Atendimento Online',
-      description: 'Atendimento jurídico online, proporcionando praticidade e comodidade para clientes de diferentes localidades.',
+      description: 'Atendimento jurídico online, com atuação em todo o Brasil.',
       icon: 'fa-solid fa-laptop',
     },
     {
       slug: 'atendimento-presencial',
       page: false,
       title: 'Atendimento Presencial',
-      description: 'Atendimento presencial na Rua Pio XII, n. 26, sala 201, Centro, Formiga/MG.',
+      description: 'Atendimento presencial na Avenida Presidente Kubitschek, 474, sala 101, Centro, Betim/MG.',
       icon: 'fa-solid fa-building',
     },
   ],
@@ -677,74 +754,78 @@ export const siteConfig = reactive({
     {
       icon: 'mdi-message-text-outline',
       title: 'Primeiro contato',
-      text: 'Entre em contato pelos canais disponíveis e apresente sua necessidade jurídica. O atendimento pode ser realizado online ou presencialmente.',
+      text: 'Fale com o escritório pelo WhatsApp ou responda ao questionário do site e conte a situação da pessoa que está cumprindo pena.',
     },
     {
       icon: 'mdi-account-search-outline',
-      title: 'Análise inicial',
-      text: 'As informações apresentadas são avaliadas para compreender as particularidades da situação e identificar a documentação necessária.',
+      title: 'Análise do processo',
+      text: 'O advogado analisa o processo de execução para entender a situação atual, os prazos e os benefícios possíveis.',
     },
     {
       icon: 'mdi-file-sign',
-      title: 'Orientação e estratégia',
-      text: 'Após a análise, são apresentadas as orientações jurídicas e os próximos passos adequados ao caso.',
+      title: 'Orientação e atuação',
+      text: 'Você recebe orientação clara sobre os próximos passos e o escritório atua nos pedidos e defesas necessários.',
     },
   ],
 
   faq: [
     {
-      question: 'Quais áreas do Direito a advogada atende?',
-      answer: 'A Advocacia Fernanda Natale atua nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário.',
+      question: 'Quais serviços o escritório oferece?',
+      answer: 'O escritório atua em execução penal: pedidos de progressão de regime, relatórios processuais, habilitação para casamento de pessoas privadas de liberdade, defesa em processo administrativo disciplinar e pedidos de livramento condicional.',
+    },
+    {
+      question: 'O escritório atende em todo o Brasil?',
+      answer: 'Sim. O escritório atua em todo o Brasil, com atendimento online, e também atende presencialmente em Betim/MG.',
     },
     {
       question: 'Onde fica o escritório?',
-      answer: 'O escritório está localizado na Rua Pio XII, n. 26, sala 201, Centro, Formiga/MG, CEP 35570-130.',
+      answer: 'Avenida Presidente Kubitschek, 474, sala 101, 1º andar, Centro, Betim/MG.',
     },
     {
-      question: 'O escritório oferece atendimento online?',
-      answer: 'Sim. A Advocacia Fernanda Natale oferece atendimento online e presencial, com atuação em todo o território nacional.',
+      question: 'O que é execução penal?',
+      answer: 'É a fase em que a pena imposta pela Justiça é cumprida e acompanhada. Nela são analisados temas como progressão de regime, livramento condicional e faltas disciplinares.',
     },
     {
-      question: 'Como funciona o primeiro atendimento?',
-      answer: 'Você entra em contato pelo WhatsApp ou responde ao questionário do site. A equipe entende a sua situação, indica a documentação necessária e explica os próximos passos. Não é preciso ir ao escritório para começar.',
+      question: 'Um familiar pode contratar o escritório?',
+      answer: 'Sim. A família pode procurar o escritório e iniciar o atendimento. A atuação no processo depende da procuração da própria pessoa presa, e a equipe orienta como providenciá-la.',
     },
     {
-      question: 'Quais documentos preciso separar?',
-      answer: 'Em geral, um documento de identificação e os documentos ligados ao seu assunto (certidões, contratos, comprovantes ou documentos do INSS). A lista varia conforme o caso; na seção de documentos do site e no questionário você encontra um ponto de partida.',
+      question: 'Como funciona a progressão de regime?',
+      answer: 'A pena é cumprida de forma progressiva: conforme o tempo cumprido e o comportamento, a pessoa pode passar para um regime mais brando, como do fechado para o semiaberto e do semiaberto para o aberto. Cada caso exige análise do processo.',
     },
     {
-      question: 'Posso enviar documentos e dados pessoais pelo WhatsApp?',
-      answer: 'No primeiro contato, prefira informar apenas o essencial e evite enviar senhas ou documentos completos. A equipe orienta qual é a forma mais adequada de envio durante o atendimento.',
+      question: 'O que é livramento condicional?',
+      answer: 'É o benefício que permite cumprir parte do restante da pena em liberdade, quando os requisitos da lei são atendidos e mediante o cumprimento de condições.',
     },
     {
-      question: 'O inventário sempre precisa ser judicial?',
-      answer: 'Não necessariamente. Quando todos os herdeiros são maiores e capazes e há acordo, o inventário pode ser feito em cartório, com a assistência de advogado. Em outras situações, pode ser necessário o caminho judicial. Cada caso exige análise.',
+      question: 'O que é falta grave e por que ela preocupa?',
+      answer: 'É a infração disciplinar mais séria no cumprimento da pena. Pode impedir benefícios, levar à regressão de regime e reduzir dias remidos. Por isso, a defesa técnica no procedimento disciplinar é importante.',
     },
     {
-      question: 'Como saber se já posso me aposentar?',
-      answer: 'Depende da idade, do tempo de contribuição, do histórico de vínculos e das regras aplicáveis à sua situação. A análise do CNIS e dos documentos é o primeiro passo para saber quais alternativas existem.',
+      question: 'O que é o relatório processual?',
+      answer: 'É um relatório que explica, de forma clara e objetiva, a situação atual e futura do processo de execução e os benefícios a que a pessoa pode ter direito.',
     },
     {
-      question: 'Meu pedido no INSS foi negado. O que fazer?',
-      answer: 'Verifique o motivo da negativa e o prazo para recurso, que costuma ser curto. Procure orientação o quanto antes para avaliar a via administrativa ou judicial.',
+      question: 'Uma pessoa presa pode se casar?',
+      answer: 'É possível. Há etapas e burocracia próprias, e o escritório oferece apoio processual, documental e pessoal para a habilitação e a realização do casamento.',
+    },
+    {
+      question: 'O escritório garante o resultado?',
+      answer: 'Não. Nenhum advogado pode garantir resultado. O escritório analisa o processo, orienta com transparência e atua com defesa técnica; a decisão cabe ao juízo da execução.',
     },
     {
       question: 'Minhas respostas do questionário ficam guardadas no site?',
       answer: 'Não. As respostas são montadas no seu aparelho e enviadas pelo WhatsApp somente quando você toca no botão de envio. Detalhes estão na Política de Privacidade.',
     },
-    {
-      question: 'Vocês atendem em outros estados?',
-      answer: 'Sim. O atendimento é online e a atuação abrange todo o território nacional, observadas as particularidades de cada caso.',
-    },
   ],
 
   team: [
     {
-      name: 'Fernanda Natale',
-      role: 'Advogada',
-      description: 'Atuação nas áreas de Direito das Famílias e Sucessões e Direito Previdenciário. Atendimento online e presencial, com atuação nacional.',
-      photo: '/IMGADV/5.png',
-      instagram: 'https://www.instagram.com/fernandanataleadvocacia/',
+      name: 'Arlley Abelha',
+      role: 'Advogado · OAB/MG 101.840',
+      description: 'Dirige o escritório de assistência jurídica a pessoas privadas de liberdade e seus familiares, com atuação em execução penal em todo o Brasil.',
+      photo: '/IMGADV/primeiro.png', // CONFIRMAR: trocar pela foto do Arlley
+      instagram: '', // CONFIRMAR
       linkedin: '',
     },
   ],
@@ -752,20 +833,19 @@ export const siteConfig = reactive({
   testimonials: [],
 
   seo: {
-    title: 'Fernanda Natale Advocacia | Direito das Famílias e Sucessões e Previdenciário',
-    description: 'Advocacia Fernanda Natale. Atuação em Direito das Famílias e Sucessões e Direito Previdenciário. Atendimento online e presencial. Escritório em Formiga/MG e atuação nacional.',
+    title: 'Arlley Abelha | Advogado de Execução Penal em Betim/MG e todo o Brasil',
+    description: 'Assistência jurídica a pessoas privadas de liberdade e seus familiares: progressão de regime, livramento condicional e mais. Betim/MG e todo o Brasil.',
     // Endereço público do site (https://www.seudominio.com.br), sem barra no final.
     // Necessário para a imagem de compartilhamento, canonical e sitemap.xml.
-    // Se ficar vazio, o build usa a variável SITE_URL ou o domínio da Vercel.
     siteUrl: '',
     ogImage: '/og-image.jpg',
-    ogImageAlt: 'Advocacia Fernanda Natale',
+    ogImageAlt: 'Arlley Abelha Advocacia · Execução Penal',
   },
 
   whatsappWidget: {
     messages: [
-      'Precisa de orientação jurídica? Entre em contato com a Advocacia Fernanda Natale.',
-      'Atendimento em Direito das Famílias e Sucessões e Direito Previdenciário. Atendimento online e presencial.',
+      'Precisando de um especialista em execução penal? Fale com o escritório de Arlley Abelha.',
+      'Atendimento humanizado para pessoas privadas de liberdade e seus familiares. Atuamos em todo o Brasil.',
     ],
     firstDelay: 12_000,
     interval: 60_000,
