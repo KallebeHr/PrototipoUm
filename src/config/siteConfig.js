@@ -565,7 +565,7 @@ export const siteConfig = reactive({
       contato: 'Olá! Vim pela seção de contato do site e preciso de um especialista em execução penal.',
     },
   },
-
+ 
   // As notas e avaliações são obtidas pelo servidor; nunca preencha notas fictícias.
   // ATENÇÃO: desligado de propósito. O servidor de avaliações usa o perfil do Google
   // configurado no ambiente; só ligue depois de conectar o perfil do Arlley Abelha,
