@@ -268,7 +268,7 @@
             </div>
             <div class="gr-navigation"><p aria-live="polite">{{ active + 1 }} de {{ reviews.length }}<span> · deslize para ver mais</span></p><div><button aria-label="Avaliação anterior" :disabled="atStart" type="button" @click="moveTrack(-1)"><i aria-hidden="true" class="mdi mdi-arrow-left" /></button><button aria-label="Próxima avaliação" :disabled="atEnd" type="button" @click="moveTrack(1)"><i aria-hidden="true" class="mdi mdi-arrow-right" /></button></div></div>
           </template>
-          <div v-else class="gr-empty"><i aria-hidden="true" class="mdi mdi-comment-text-outline" /><h3>A sua experiência importa</h3><p>Ainda não há comentários disponíveis para exibir aqui. {{ writeLink ? 'Compartilhe sua opinião pelo botão “Avaliar no Google”.' : 'Consulte o perfil do escritório no Google para mais informações.' }}</p></div>
+          <div v-else class="gr-empty"><i aria-hidden="true" class="mdi mdi-comment-text-outline" /><h3>{{ data.reviewCount > 0 ? 'Veja os comentários no Google' : 'A sua experiência importa' }}</h3><p>{{ data.reviewCount > 0 ? 'Os comentários completos dos clientes estão no perfil do escritório no Google Maps. Use o botão “Ver no Google” para lê-los.' : (writeLink ? 'Ainda não há comentários disponíveis para exibir aqui. Compartilhe sua opinião pelo botão “Avaliar no Google”.' : 'Ainda não há comentários disponíveis para exibir aqui. Consulte o perfil do escritório no Google para mais informações.') }}</p></div>
         </div>
       </div>
       <div v-if="!compact || data.attributions?.length" class="gr-attribution"><span v-if="!compact" translate="no">Google Maps</span><p v-if="!compact">Até cinco avaliações, selecionadas e ordenadas por relevância pelo Google.</p><a
