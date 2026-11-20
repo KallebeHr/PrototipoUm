@@ -19,7 +19,7 @@ export const siteConfig = reactive({
     oab: 'OAB/MG 101.840',
     logo: '/LogoPng04.png',
     initials: 'AA',
-    favicon: '/LogoPng3.png',
+    favicon: '/LogoPng04.png',
     developer: 'Kallebe Max',
   },
 
