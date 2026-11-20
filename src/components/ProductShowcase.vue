@@ -111,11 +111,31 @@
 .product-badge {
   position: absolute; top: 14px; left: 14px;
   padding: 4px 12px; border-radius: 999px;
-  background: var(--color-secondary); color: #1d130c;
+  background: var(--color-secondary); color: #ffffff;
   font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
 }
 .product-body { width: 100%; padding: 22px 24px; display: grid; gap: 8px; justify-items: start; }
-.product-body h3 { font: 400 clamp(1.3rem, 2.4vw, 1.8rem)/1.2 Georgia, 'Times New Roman', serif; overflow-wrap: anywhere; }
+.product-body h3 {
+  font-weight: 700;
+  line-height: 1.15;
+
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 12px;
+  padding: 12px 18px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.18);
+
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
 .product-desc { margin: 0; font-size: .9rem; color: #f2e9de; max-width: 52ch; }
 .product-price { margin: 0; font-weight: 700; color: var(--color-accent); }
 .product-button {

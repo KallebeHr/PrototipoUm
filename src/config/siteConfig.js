@@ -236,9 +236,9 @@ export const siteConfig = reactive({
   // aquela opção é encaminhado para esse número.
   // ─────────────────────────────────────────────────────────────────────────
   quiz: {
-    enabled: true,
-    showOnSite: true,
-    showOnLinkBio: true,
+    enabled: false,
+    showOnSite: false,
+    showOnLinkBio: false,
     buttonLabel: 'Responder questionário',
     buttonDescription: 'Leva cerca de 3 minutos e agiliza seu atendimento',
     pageTitle: 'Vamos entender o caso',
@@ -468,11 +468,11 @@ export const siteConfig = reactive({
   // do site. CONFIRMAR: o advogado deve revisar tudo antes de publicar.
   // ─────────────────────────────────────────────────────────────────────────
   blog: {
-    enabled: true,
+    enabled: false,
     title: 'Artigos',
     eyebrow: 'Informação jurídica',
     description: 'Conteúdos informativos sobre execução penal para pessoas presas e seus familiares.',
-    showOnHome: true,
+    showOnHome: false,
     disclaimer: 'Conteúdo informativo, de caráter geral. Não substitui a análise do caso por advogado(a).',
     posts: [
       {
