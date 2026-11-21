@@ -29,6 +29,11 @@ export function allRoutes () {
   if (c.quiz?.enabled && c.quiz.questions?.length) {
     routes.push({ path: '/ajuda', title: `${c.quiz.pageTitle} | ${name}`, description: trim(c.quiz.pageIntro), kind: 'quiz' })
   }
+  if (c.products?.enabled && c.products.page?.enabled) {
+    const pg = c.products.page
+    const first = (c.products.items || [])[0]
+    routes.push({ path: pg.path || '/produtos', title: `${first?.title || pg.navLabel || 'Produtos'} | ${name}`, description: trim(pg.lead), kind: 'sales' })
+  }
   if (c.privacy?.enabled) {
     routes.push({ path: '/privacidade', title: `Política de Privacidade | ${name}`, description: `Como a ${c.brand.officeName} trata dados pessoais, conforme a LGPD.`, kind: 'privacy' })
   }

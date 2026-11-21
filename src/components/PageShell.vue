@@ -1,6 +1,6 @@
 <script setup>
   import { computed } from 'vue'
-  import { quizVisible } from '../composables/useOffers'
+  import { quizVisible, salesPageEnabled, salesPagePath } from '../composables/useOffers'
   import { siteConfig as c, whatsappUrl } from '../config/siteConfig'
   import AccessibilityMenu from './AccessibilityMenu.vue'
   import FooterSection from './FooterSection.vue'
@@ -10,6 +10,7 @@
     ['Início', '/'],
     ['Áreas', '/#areas'],
     ...(c.blog?.enabled ? [[c.blog.title, '/blog']] : []),
+    ...(salesPageEnabled() ? [[c.products.page.navLabel || 'Produtos', salesPagePath()]] : []),
     ...(quizVisible('site') ? [[c.quiz.buttonLabel, '/ajuda']] : []),
   ])
 </script>

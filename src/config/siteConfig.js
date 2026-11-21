@@ -198,13 +198,55 @@ export const siteConfig = reactive({
   // Imagens: coloque em /public e informe o caminho (ex.: '/media/mapa.jpg').
   // Proporção recomendada da arte: 1200 x 480 px (horizontal).
   // ─────────────────────────────────────────────────────────────────────────
+  // Dois caminhos logo no começo do site: quem precisa de um advogado e quem é colega de profissão.
+  audience: {
+    enabled: true,
+    eyebrow: 'Seja bem-vindo(a)',
+    title: 'Como podemos caminhar juntos?',
+    description: 'Este espaço é para quem busca orientação e também para colegas que querem trocar e aprender.',
+    cards: [
+      {
+        id: 'clientes',
+        icon: 'mdi-account-heart-outline',
+        tag: 'Sou cliente ou familiar',
+        title: 'Preciso de orientação jurídica',
+        text: 'Conte sua situação com calma. Você recebe um primeiro direcionamento claro, sem juridiquês e com respeito ao seu momento.',
+        primary: { label: 'Responder o questionário', href: '/ajuda', fallbackHref: '#contato' },
+        secondary: { label: 'Falar no WhatsApp', message: 'Olá! Vim pelo site e gostaria de uma orientação jurídica.' },
+      },
+      {
+        id: 'advogados',
+        icon: 'mdi-scale-balance',
+        tag: 'Sou advogado(a)',
+        title: 'Quero aprender e trocar com colegas',
+        text: 'Cursos e materiais práticos de quem atua na área, e abertura para conversar sobre atuação conjunta entre colegas.',
+        primary: { label: 'Ver materiais e cursos', href: '#produtos' },
+        secondary: { label: 'Conversar com o escritório', message: 'Olá, sou advogado(a) e vim pelo site. Gostaria de conversar sobre materiais ou atuação conjunta.' },
+        dark: true,
+      },
+    ],
+  },
   products: {
     enabled: true,
     showOnSite: true,
     showOnLinkBio: true,
-    eyebrow: 'Para advogados',
-    title: 'Mapa da Inquirição',
-    description: 'Material de Arlley Abelha para advogados que atuam em audiências.',
+    eyebrow: 'Materiais e cursos',
+    title: 'Conhecimento que também vira material',
+    description: 'Além do atendimento jurídico, o escritório compartilha o que aprendeu na prática em cursos e materiais. Escolha o que faz sentido para você.',
+    // Aviso (popup) que apresenta os produtos à venda. Aparece uma vez por visitante
+    // dentro de `frequencyDays`, só na página inicial, depois do aviso de cookies.
+    popup: {
+      enabled: true,
+      delayMs: 9000, // abre após este tempo...
+      scrollPercent: 35, // ...ou quando a pessoa rolar esta % da página (o que vier primeiro)
+      frequencyDays: 3, // depois de fechado, só volta a aparecer após N dias
+      eyebrow: 'Novidade no escritório',
+      title: 'Agora temos materiais à venda',
+      text: 'Além do atendimento jurídico, você já pode conhecer os cursos e materiais do Arlley Abelha, feitos para quem quer aprender com a prática.',
+      buttonLabel: 'Conhecer o material',
+      dismissLabel: 'Agora não',
+      allLabel: 'Ver todos os materiais',
+    },
     items: [
       {
         title: 'Mapa da Inquirição',
@@ -214,6 +256,7 @@ export const siteConfig = reactive({
         image: '/media/mapa.png',
         imageAlt: 'Capa do curso Mapa da Inquirição',
         badge: 'Para advogados',
+        audience: 'advogados', // 'advogados' | 'clientes' (usado nos filtros da vitrine)
         price: '', // CONFIRMAR: preço atual na Hotmart
         buttonLabel: 'Saiba mais',
         url: 'https://hotmart.com/pt-br/marketplace/produtos/mapa-da-inquiricao/M102229646W',
@@ -282,7 +325,7 @@ export const siteConfig = reactive({
         help: 'Escolha o que mais se aproxima. Se não tiver certeza, marque a última opção: o advogado ajuda a identificar.',
         type: 'single',
         required: true,
-        icon: 'mdi-scale-balanced',
+        icon: 'mdi-scale-balance',
         options: [
           { label: 'Pedido de progressão de regime', value: 'progressao' },
           { label: 'Relatório do processo (entender a situação)', value: 'relatorio' },

@@ -11,9 +11,11 @@
   import NotFoundPage from './components/NotFoundPage.vue'
   import PrivacyPage from './components/PrivacyPage.vue'
   import ProfessionalPage from './components/ProfessionalPage.vue'
+  import ProductToast from './components/ProductToast.vue'
   import QuizPage from './components/QuizPage.vue'
+  import SalesPage from './components/SalesPage.vue'
   import { initConsent, track, trackPageView } from './composables/useConsent'
-  import { quizAvailable } from './composables/useOffers'
+  import { quizAvailable, salesPageEnabled, salesPagePath } from './composables/useOffers'
   import { captureOrigin } from './composables/useOrigin'
   import { jsonLdFor, ogImageFor, routeFor } from './config/seoRoutes'
   import { siteConfig } from './config/siteConfig'
@@ -35,6 +37,7 @@
     if (p === '/') return { name: 'home' }
     if (/^\/(linkbio|bio|links)$/i.test(p)) return { name: 'bio' }
     if (/^\/(ajuda|quiz)$/i.test(p)) return quizAvailable() ? { name: 'quiz' } : { name: 'redirect-home' }
+    if (p === salesPagePath() && salesPageEnabled()) return { name: 'sales' }
     if (p === '/privacidade' && siteConfig.privacy?.enabled) return { name: 'privacy' }
     if (p === '/blog' && siteConfig.blog?.enabled) return { name: 'blog' }
     if ((m = p.match(/^\/blog\/([^/]+)$/)) && siteConfig.blog?.enabled && siteConfig.blog.posts.some(x => x.slug === m[1])) return { name: 'post', slug: m[1] }
@@ -79,13 +82,15 @@
     sync(previousName)
   }
 
-  const floatingPages = ['home', 'blog', 'post', 'area', 'profile', 'privacy', 'notfound']
+  const floatingPages = ['home', 'blog', 'post', 'area', 'profile', 'privacy', 'notfound', 'sales']
+  const toastPages = ['home', 'blog', 'post', 'area', 'profile']
   const pageMessage = computed(() => {
     const r = route.value
     if (r.name === 'area') return `Olá! Vim pela página de ${siteConfig.practiceAreas.find(a => a.slug === r.slug)?.title} e gostaria de orientação.`
     if (r.name === 'post') return `Olá! Li o artigo “${siteConfig.blog.posts.find(p => p.slug === r.slug)?.title}” no site e gostaria de orientação.`
     if (r.name === 'blog') return siteConfig.conversion?.sectionMessages?.artigos || ''
     if (r.name === 'profile') return siteConfig.conversion?.sectionMessages?.equipe || ''
+    if (r.name === 'sales') return siteConfig.conversion?.sectionMessages?.produtos || ''
     return ''
   })
 
@@ -184,6 +189,7 @@
   <GoogleReviewsPolicy v-if="route.name === 'policy'" :key="route.kind" :kind="route.kind" />
   <LinkBioPage v-else-if="route.name === 'bio'" />
   <QuizPage v-else-if="route.name === 'quiz'" :back-href="quizBack" />
+  <SalesPage v-else-if="route.name === 'sales'" />
   <PrivacyPage v-else-if="route.name === 'privacy'" />
   <BlogIndexPage v-else-if="route.name === 'blog'" />
   <BlogPostPage v-else-if="route.name === 'post'" :key="route.slug" :slug="route.slug" />
@@ -192,5 +198,6 @@
   <NotFoundPage v-else-if="route.name === 'notfound'" />
   <InstitutionalSite v-else />
   <FloatingWhatsApp v-if="floatingPages.includes(route.name)" :key="`${route.name}-${route.slug || ''}`" :page-message="pageMessage" />
+  <ProductToast v-if="toastPages.includes(route.name)" :key="`toast-${route.name}`" />
   <CookieBanner />
 </template>

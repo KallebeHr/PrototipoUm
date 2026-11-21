@@ -1,6 +1,7 @@
 <script setup>
   import gsap from 'gsap'
-  import { onMounted, onUnmounted } from 'vue'
+  import { nextTick, onMounted, onUnmounted } from 'vue'
+  import { revealAll } from '../composables/useReveal'
   import { siteConfig as c } from '../config/siteConfig'
   import AccessibilityMenu from './AccessibilityMenu.vue'
   import BlogSection from './BlogSection.vue'
@@ -9,13 +10,16 @@
   import GoogleReviewsSection from './GoogleReviewsSection.vue'
   import HeaderNavigation from './HeaderNavigation.vue'
   import PracticeAreas from './PracticeAreas.vue'
+  import ProductPopup from './ProductPopup.vue'
   import ProductShowcase from './ProductShowcase.vue'
   import QuizCallout from './QuizCallout.vue'
   import TeamSection from './TeamSection.vue'
 
   let motion
 
-  onMounted(() => {
+  onMounted(async () => {
+    await nextTick()
+    revealAll()
     motion = gsap.matchMedia()
     motion.add('(prefers-reduced-motion: no-preference)', () => {
       gsap.fromTo('.editorial-photo', { y: 10 }, { y: 0, duration: 0.65, ease: 'power2.out', clearProps: 'transform' })
@@ -82,4 +86,5 @@
   <FooterSection />
 
   <AccessibilityMenu />
+  <ProductPopup />
 </template>

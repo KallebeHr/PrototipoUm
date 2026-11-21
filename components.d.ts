@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AccessibilityMenu: typeof import('./src/components/AccessibilityMenu.vue')['default']
     AreaPage: typeof import('./src/components/AreaPage.vue')['default']
+    AudienceSection: typeof import('./src/components/AudienceSection.vue')['default']
     BlogIndexPage: typeof import('./src/components/BlogIndexPage.vue')['default']
     BlogPostPage: typeof import('./src/components/BlogPostPage.vue')['default']
     BlogSection: typeof import('./src/components/BlogSection.vue')['default']
@@ -30,13 +31,16 @@ declare module 'vue' {
     PostCard: typeof import('./src/components/PostCard.vue')['default']
     PracticeAreas: typeof import('./src/components/PracticeAreas.vue')['default']
     PrivacyPage: typeof import('./src/components/PrivacyPage.vue')['default']
+    ProductPopup: typeof import('./src/components/ProductPopup.vue')['default']
     ProductShowcase: typeof import('./src/components/ProductShowcase.vue')['default']
+    ProductToast: typeof import('./src/components/ProductToast.vue')['default']
     ProfessionalPage: typeof import('./src/components/ProfessionalPage.vue')['default']
     QuizCallout: typeof import('./src/components/QuizCallout.vue')['default']
     QuizPage: typeof import('./src/components/QuizPage.vue')['default']
     ReviewStars: typeof import('./src/components/ReviewStars.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SalesPage: typeof import('./src/components/SalesPage.vue')['default']
     TeamSection: typeof import('./src/components/TeamSection.vue')['default']
   }
 }

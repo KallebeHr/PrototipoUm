@@ -69,12 +69,38 @@ export function visibleProducts (place) {
   const itemFlag = place === 'bio' ? 'showOnLinkBio' : 'showOnSite'
   return (p.items || [])
     .filter(item => item?.title && item[itemFlag] !== false)
-    .map((item, index) => ({ ...item, key: `${index}-${item.title}`, href: productHref(item) }))
-    .filter(item => item.href)
+    .map((item, index) => ({ ...item, key: `${index}-${item.title}`, href: productHref(item), buyHref: buyHref(item) }))
+    .filter(item => item.href && item.buyHref)
+}
+
+export const salesPageEnabled = () => Boolean(c.products?.enabled && c.products.page?.enabled)
+export const salesPagePath = () => c.products?.page?.path || '/produtos'
+
+/** Desconto ativo? (some sozinho depois de `endsAt`). */
+export function discountInfo () {
+  const d = c.products?.discount
+  if (!d?.enabled || !(d.percent > 0)) {
+    return { active: false }
+  }
+  const ends = d.endsAt ? new Date(d.endsAt) : null
+  if (ends && (Number.isNaN(ends.getTime()) || ends.getTime() < Date.now())) {
+    return { active: false }
+  }
+  return { active: true, percent: d.percent, label: d.label || 'de desconto', coupon: d.coupon || '', endsAt: ends }
+}
+
+export const formatMoney = value => Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+/** Destino dos cards/botões do site: página de vendas (se ativa) ou direto a compra. */
+export function productHref (item) {
+  if (salesPageEnabled() && item.salesPage !== false) {
+    return salesPagePath()
+  }
+  return buyHref(item)
 }
 
 /** url preenchida → usa a url; senão, abre o WhatsApp com a mensagem do item. */
-export function productHref (item) {
+export function buyHref (item) {
   const url = String(item.url || '').trim()
   if (url) {
     return url

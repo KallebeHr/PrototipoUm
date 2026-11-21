@@ -1,0 +1,41 @@
+/* Movimento leve do site: apenas transform/opacity (rodam na GPU, sem reflow). */
+
+/* ── Entrada ao rolar (v-reveal / revealAll) ─────────────────────
+   Usa `animation` com fill "backwards": depois de terminar, o elemento volta
+   ao CSS normal e não briga com os :hover/transition de cada componente. */
+.rv { opacity: 0; }
+.rv.rv-in { opacity: 1; animation: rv-up .6s cubic-bezier(.22, .61, .36, 1) var(--rv-delay, 0ms) backwards; }
+.rv--left.rv-in { animation-name: rv-left; }
+.rv--right.rv-in { animation-name: rv-right; }
+.rv--zoom.rv-in { animation-name: rv-zoom; }
+@keyframes rv-up { from { opacity: 0; transform: translate3d(0, 18px, 0); } to { opacity: 1; transform: none; } }
+@keyframes rv-left { from { opacity: 0; transform: translate3d(-22px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes rv-right { from { opacity: 0; transform: translate3d(22px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes rv-zoom { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+/* ── Hero: título entra em sequência, linha decorativa "desenha" ── */
+.hero .wrap > h1 { animation: mo-up .7s cubic-bezier(.22, .61, .36, 1) both; }
+.hero h1::after { transform-origin: center; animation: mo-line .8s .45s cubic-bezier(.22, .61, .36, 1) both; }
+
+/* ── Títulos de seção com filete dourado que cresce ao aparecer ── */
+.content-section > h2 { position: relative; }
+.content-section > h2::after { content: ''; display: block; width: 52px; height: 3px; margin-top: 14px; background: var(--color-secondary); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform .7s .2s cubic-bezier(.22, .61, .36, 1); }
+.content-section.rv-in > h2::after, .content-section:not(.rv) > h2::after { transform: scaleX(1); }
+
+/* ── Microinterações ─────────────────────────────────────────── */
+.practice-sidebar > a, .areas-grid summary, .text-link { transition: padding-left .25s ease, color .2s ease; }
+.text-link i, .solid-button i { transition: transform .25s ease; }
+.text-link:hover i, .solid-button:hover i { transform: translateX(4px); }
+.contact-channels > a { transition: transform .25s ease, border-color .25s ease; }
+.contact-channels > a:hover { transform: translateX(4px); border-color: var(--color-primary); }
+.service-journey li { transition: transform .3s ease, box-shadow .3s ease; }
+.service-journey li:hover { transform: translateY(-4px); box-shadow: 0 14px 30px #39291a1a; z-index: 1; }
+
+@keyframes mo-up { from { opacity: 0; transform: translate3d(0, 16px, 0); } to { opacity: 1; transform: none; } }
+@keyframes mo-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rv, .rv.rv-in { opacity: 1 !important; animation: none !important; }
+  .hero .wrap > h1, .hero h1::after { animation: none !important; }
+  .content-section > h2::after { transform: none !important; transition: none !important; }
+}
