@@ -1,7 +1,7 @@
 <script setup>
   import { nextTick, ref, watch } from 'vue'
   import { consent, setConsent } from '../composables/useConsent'
-  import { siteConfig as c } from '../config/siteConfig'
+   import { siteConfig as c } from '../config/siteConfig'
 
   const box = ref(null)
   watch(() => consent.bannerOpen, async open => {
