@@ -198,34 +198,6 @@ export const siteConfig = reactive({
   // Imagens: coloque em /public e informe o caminho (ex.: '/media/mapa.jpg').
   // Proporção recomendada da arte: 1200 x 480 px (horizontal).
   // ─────────────────────────────────────────────────────────────────────────
-  // Dois caminhos logo no começo do site: quem precisa de um advogado e quem é colega de profissão.
-  audience: {
-    enabled: true,
-    eyebrow: 'Seja bem-vindo(a)',
-    title: 'Como podemos caminhar juntos?',
-    description: 'Este espaço é para quem busca orientação e também para colegas que querem trocar e aprender.',
-    cards: [
-      {
-        id: 'clientes',
-        icon: 'mdi-account-heart-outline',
-        tag: 'Sou cliente ou familiar',
-        title: 'Preciso de orientação jurídica',
-        text: 'Conte sua situação com calma. Você recebe um primeiro direcionamento claro, sem juridiquês e com respeito ao seu momento.',
-        primary: { label: 'Responder o questionário', href: '/ajuda', fallbackHref: '#contato' },
-        secondary: { label: 'Falar no WhatsApp', message: 'Olá! Vim pelo site e gostaria de uma orientação jurídica.' },
-      },
-      {
-        id: 'advogados',
-        icon: 'mdi-scale-balance',
-        tag: 'Sou advogado(a)',
-        title: 'Quero aprender e trocar com colegas',
-        text: 'Cursos e materiais práticos de quem atua na área, e abertura para conversar sobre atuação conjunta entre colegas.',
-        primary: { label: 'Ver materiais e cursos', href: '#produtos' },
-        secondary: { label: 'Conversar com o escritório', message: 'Olá, sou advogado(a) e vim pelo site. Gostaria de conversar sobre materiais ou atuação conjunta.' },
-        dark: true,
-      },
-    ],
-  },
   products: {
     enabled: true,
     showOnSite: true,
@@ -247,6 +219,73 @@ export const siteConfig = reactive({
       dismissLabel: 'Agora não',
       allLabel: 'Ver todos os materiais',
     },
+    // Desconto exibido no aviso, no popup, na vitrine e na página de vendas.
+    // IMPORTANTE: o desconto precisa existir de verdade na Hotmart (preço promocional ou cupom).
+    // `endsAt` (opcional, ex.: '2026-12-31T23:59:00-03:00') liga a contagem regressiva;
+    // depois dessa data o desconto some sozinho de todo o site. Deixe '' para não usar prazo.
+    discount: {
+      enabled: true,
+      percent: 20,
+      label: 'de desconto',
+      coupon: '', // CONFIRMAR: cupom da Hotmart (opcional). Aparece com botão "copiar".
+      endsAt: '',
+    },
+    // Notificação no canto superior direito. Textos aceitam {percent}, {product} e {count}.
+    toast: {
+      enabled: true,
+      firstDelayMs: 12000, // 1ª aparição
+      intervalMs: 20000, // intervalo entre as aparições
+      durationMs: 7000, // quanto tempo fica na tela
+      maxShows: 0, // 0 = sem limite
+      stopWhenDismissed: true, // se a pessoa fechar no X, não aparece mais nesta visita
+      buttonLabel: 'Ver oferta',
+      messages: [
+        '{percent}% de desconto no {product}',
+        'Mais de {count} advogados já aprendem com este método',
+        'Aprenda a conduzir audiências com mais confiança',
+      ],
+    },
+    // Página completa de vendas (rota própria). Para desligar: enabled: false.
+    page: {
+      enabled: true,
+      path: '/produtos',
+      navLabel: 'Produtos',
+      eyebrow: 'Curso para advogados',
+      title: 'Conduza audiências com mais segurança e perguntas mais certeiras',
+      lead: 'O Mapa da Inquirição ensina a identificar os 4 perfis de testemunhas e a adaptar suas perguntas a cada um. Método prático de quem atua na área.',
+      chips: ['Acesso pela Hotmart', 'Conteúdo prático', 'Para advogados e advogadas'],
+      buyLabel: 'Quero o Mapa da Inquirição',
+      questionsLabel: 'Tirar dúvidas no WhatsApp',
+      proof: {
+        stats: [
+          { value: 50, prefix: '+', label: 'advogados satisfeitos' }, // CONFIRMAR: número real e comprovável
+          { value: 4, prefix: '', label: 'perfis de testemunhas no método' },
+        ],
+        testimonials: [
+          // { name: 'Nome', role: 'Advogado(a) · OAB/UF', text: 'Depoimento autorizado.' },
+        ],
+      },
+      methodTitle: 'Como o método funciona',
+      methodLead: 'Três movimentos simples para sair do improviso e entrar na audiência com um roteiro.',
+      // CONFIRMAR: ajuste os textos ao conteúdo real do curso.
+      steps: [
+        { icon: 'mdi-account-search-outline', title: 'Identifique o perfil', text: 'Aprenda a reconhecer, logo nos primeiros minutos, com qual dos 4 perfis de testemunha você está lidando.' },
+        { icon: 'mdi-help-circle-outline', title: 'Faça as perguntas certas', text: 'Adapte a forma e a ordem das perguntas ao perfil da testemunha para obter respostas úteis ao seu caso.' },
+        { icon: 'mdi-shield-check-outline', title: 'Conduza com confiança', text: 'Entre na audiência com um caminho claro, menos improviso e mais controle sobre a inquirição.' },
+      ],
+      offerTitle: 'Condição especial para você começar agora',
+      offerNote: 'O acesso e o pagamento são feitos com segurança pela Hotmart.',
+      guarantee: '', // CONFIRMAR: política de garantia/reembolso da Hotmart (deixe vazio para não exibir)
+      faqTitle: 'Perguntas frequentes',
+      faq: [
+        { question: 'Para quem é o Mapa da Inquirição?', answer: 'Para advogados e advogadas que atuam em audiências e querem conduzir a inquirição de testemunhas com mais método.' },
+        { question: 'Como recebo o acesso?', answer: 'A compra é feita na Hotmart. Depois da confirmação do pagamento, o acesso é liberado por lá.' },
+        { question: 'Posso tirar dúvidas antes de comprar?', answer: 'Sim. Use o botão de WhatsApp desta página e fale com o escritório.' },
+      ],
+      finalTitle: 'Pronto para levar mais método à sua próxima audiência?',
+      finalText: 'Conheça o conteúdo e comece quando quiser.',
+      disclaimer: 'Conteúdo educativo, sem promessa de resultado em processos. Cada caso depende de suas circunstâncias.',
+    },
     items: [
       {
         title: 'Mapa da Inquirição',
@@ -257,7 +296,9 @@ export const siteConfig = reactive({
         imageAlt: 'Capa do curso Mapa da Inquirição',
         badge: 'Para advogados',
         audience: 'advogados', // 'advogados' | 'clientes' (usado nos filtros da vitrine)
-        price: '', // CONFIRMAR: preço atual na Hotmart
+        price: '', // CONFIRMAR: preço atual na Hotmart (texto livre, ex.: 'R$ 197')
+        priceValue: 0, // CONFIRMAR: valor com desconto (número, ex.: 197). Com os dois valores, o preço "cai" animado na página de vendas.
+        oldPriceValue: 0, // CONFIRMAR: valor sem desconto (número, ex.: 247)
         buttonLabel: 'Saiba mais',
         url: 'https://hotmart.com/pt-br/marketplace/produtos/mapa-da-inquiricao/M102229646W',
         whatsappMessage: 'Olá! Vi o Mapa da Inquirição no site e gostaria de saber mais.',
