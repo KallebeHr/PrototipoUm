@@ -541,7 +541,7 @@ export const siteConfig = reactive({
     ga4Id: 'G-7QV205T34P', 
     metaPixelId: '',
     bannerTitle: 'Sua privacidade',
-    bannerText: 'Usamos cookies de medição para entender como o site é usado e melhorar o atendimento. Eles só são ativados se você aceitar.',
+    bannerText: 'Usamos cookies de medição para entender como o site é usado e melhorar o atendimento. Eles só são ativados se você aceitar..',
   },
 
   // ─────────────────────────────────────────────────────────────────────────
