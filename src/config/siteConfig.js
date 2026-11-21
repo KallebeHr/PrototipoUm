@@ -65,8 +65,6 @@ export const siteConfig = reactive({
     emergencyPhone: '',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Avenida+Presidente+Kubitschek+474+Centro+Betim+MG',
     mapZoom: 16,
-    // CONFIRMAR: coordenadas aproximadas do centro de Betim/MG. Ajuste para a
-    // posição exata do escritório (clique com o botão direito no Google Maps).
     latitude: -19.9677,
     longitude: -44.1984,
   },
@@ -455,9 +453,9 @@ export const siteConfig = reactive({
   },
 
   analytics: {
-    enabled: false,
-    ga4Id: '', // ex.: 'G-XXXXXXXXXX'
-    metaPixelId: '', // ex.: '1234567890'
+    enabled: true,
+    ga4Id: 'G-7QV205T34P', 
+    metaPixelId: '',
     bannerTitle: 'Sua privacidade',
     bannerText: 'Usamos cookies de medição para entender como o site é usado e melhorar o atendimento. Eles só são ativados se você aceitar.',
   },
