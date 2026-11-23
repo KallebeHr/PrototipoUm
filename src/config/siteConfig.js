@@ -3,70 +3,70 @@ import { originSuffix } from '../composables/useOrigin.js'
 
 // ═════════════════════════════════════════════════════════════════════════
 // Conteúdo reunido de:
-//   • https://arlleyabelha.com.br/  (site principal, com CNPJ e razão social)
-//   • https://abelha.adv.br/        (site secundário, mesmo conteúdo, outro WhatsApp)
-//   • Hotmart: Mapa da Inquirição - Arlley Abelha
+//   • https://mfsolucoes.com/  (site antigo: telefone, e-mails, CNPJ, áreas, dica de contratos)
+//   • Bio do Instagram (especialidades, slogan e os dois endereços)
+//   • Logo (paleta: azul-marinho, prata e azul vivo)
 //
-// ⚠ ITENS MARCADOS COM "CONFIRMAR" não constavam nos sites e precisam ser
+// ⚠ ITENS MARCADOS COM "CONFIRMAR" não constavam nas fontes e precisam ser
 //   preenchidos/validados pelo escritório antes de publicar.
 // ═════════════════════════════════════════════════════════════════════════
 
 export const siteConfig = reactive({
   brand: {
-    officeName: 'Arlley Abelha Advocacia',
-    shortName: 'Arlley Abelha',
-    professionalName: 'Arlley Abelha',
-    oab: 'OAB/MG 101.840',
-    logo: '/LogoPng04.png',
-    initials: 'AA',
-    favicon: '/LogoPng04.png',
+    officeName: 'MF Soluções',
+    shortName: 'MF Soluções',
+    professionalName: 'Marcos Ferreira',
+    oab: '', // CONFIRMAR: número da OAB do Dr. Marcos Ferreira (não consta no site nem na bio)
+    logo: '/LogoPng05.png', // CONFIRMAR: salvar a logo enviada em /public/logo-mf.png
+    initials: 'MF',
+    favicon: '/LogoPng05.png',
     developer: 'Kallebe Max',
   },
 
+  // Paleta tirada da logo: fundo azul-marinho, letras em prata e detalhes em azul vivo.
   theme: {
-    primary: '#7A6252',
-    primaryDark: '#6D090A',
-    secondary: '#6D090A',
-    accent: '#E6D5C3',
+    primary: '#0B1F3F',
+    primaryDark: '#050E1F',
+    secondary: '#2F7FD8',
+    accent: '#C9CED6',
     surface: '#FFFFFF',
-    surfaceSoft: '#F7F4F0',
-    text: '#2C2A29',
+    surfaceSoft: '#F2F5F9',
+    text: '#1A2433',
   },
 
   hero: {
-    eyebrow: 'Arlley Abelha | Advocacia',
-    title: 'Precisando de um especialista em execução penal?',
-    highlight: 'execução penal',
-    subtitle: 'Assistência jurídica para pessoas privadas de liberdade e seus familiares, com atendimento humanizado. Atuamos em todo o Brasil.',
-    video: '/IMG-VIDEOS/Teste.mp4', // CONFIRMAR: trocar pelo vídeo do Arlley
+    eyebrow: 'MF Soluções | Jurídico',
+    title: 'Precisando proteger seus direitos financeiros?',
+    highlight: 'direitos financeiros',
+    subtitle: 'Especialistas em Direito Bancário, Previdenciário e Agrário, com ética, agilidade e eficiência. Soluções inteligentes para problemas reais.',
+    video: '/IMG-VIDEOS/Teste.mp4', // CONFIRMAR: trocar pelo vídeo do escritório
     backgroundImage: '/media/Banner3.png', // CONFIRMAR: trocar pela imagem do novo site
     ctaLabel: 'Fale com um especialista agora',
     highlights: [
-      'Execução penal',
-      'Atendimento humanizado',
-      'Atuação em todo o Brasil',
+      'Bancário, Previdenciário e Agrário',
+      'Ética, agilidade e eficiência',
+      'Escritórios na Barra da Tijuca e em Sepetiba',
     ],
   },
 
   contact: {
-    // WhatsApp principal: o do site arlleyabelha.com.br.
-    // O site abelha.adv.br usa outro número: (31) 97264-8424 → 5531972648424.
-    // Para dividir os atendimentos entre os dois, use quiz.whatsapp ou o campo
-    // "whatsapp" em cada opção do quiz.
-    phone: '(31) 99655-4528',
-    phoneRaw: '5531996554528',
-    whatsapp: '5531996554528',
-    whatsappMessage: 'Olá, vim pelo site, preciso de um especialista em execução penal.',
-    email: '', // CONFIRMAR: os sites exibiam um e-mail de exemplo (email@email.com.br)
-    address: 'Avenida Presidente Kubitschek, 474, sala 101, 1º andar, Centro',
-    city: 'Betim/MG',
-    zipCode: '', // CONFIRMAR: CEP não consta nos sites
+    // Telefone/WhatsApp do site antigo: (21) 99451-7621.
+    phone: '(21) 99451-7621',
+    phoneRaw: '5521994517621',
+    whatsapp: '5521994517621',
+    whatsappMessage: 'Olá, vim pelo site e preciso de orientação jurídica com a MF Soluções.',
+    // Outros e-mails do site antigo: suporte@mfsolucoes.com e comercial@mfsolucoes.com
+    email: 'contato@mfsolucoes.com',
+    // Dois escritórios (bio do Instagram). O primeiro é usado como endereço principal.
+    address: 'Avenida das Américas, 4200, bloco C1, sala 305, Barra da Tijuca | Estrada de Sepetiba, 5.615, sala 4, Sepetiba',
+    city: 'Rio de Janeiro/RJ',
+    zipCode: '23535-450', // CONFIRMAR: CEP da bio (23535-450 parece ser o de Sepetiba; falta o da Barra da Tijuca)
     businessHours: '', // CONFIRMAR
     emergencyPhone: '',
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Avenida+Presidente+Kubitschek+474+Centro+Betim+MG',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Avenida+das+Americas+4200+Barra+da+Tijuca+Rio+de+Janeiro+RJ',
     mapZoom: 16,
-    latitude: -19.9677,
-    longitude: -44.1984,
+    latitude: -23.0003, // CONFIRMAR: coordenadas aproximadas da Barra da Tijuca
+    longitude: -43.3660,
   },
 
   booking: {
@@ -78,59 +78,61 @@ export const siteConfig = reactive({
   // pelo advogado. Revise e mude para true (com reviewedBy/reviewedAt) para publicar.
   documentChecklists: [
     {
-      area: 'Pedidos de progressão de regime',
+      area: 'Litígio bancário',
+      approved: false,
+      reviewedBy: '',
+      reviewedAt: '',
+      items: [
+        'Documento de identificação com foto e CPF',
+        'Contrato bancário completo (empréstimo, financiamento, cartão ou cheque especial)',
+        'Extratos, boletos e comprovantes de pagamento',
+        'Prints de simulações, conversas de WhatsApp e e-mails com o banco',
+      ],
+    },
+    {
+      area: 'Direito previdenciário',
+      approved: false,
+      reviewedBy: '',
+      reviewedAt: '',
+      items: [
+        'Documento de identificação com foto e CPF',
+        'Extrato do CNIS e carteira de trabalho, se tiver',
+        'Carta de concessão ou de indeferimento do INSS, se houver',
+        'Laudos e relatórios médicos, quando o caso envolver saúde',
+      ],
+    },
+    {
+      area: 'Direito agrário',
+      approved: false,
+      reviewedBy: '',
+      reviewedAt: '',
+      items: [
+        'Documento de identificação e CPF/CNPJ do produtor',
+        'Documentos da propriedade (matrícula, CAR, ITR ou contrato de arrendamento)',
+        'Cédulas, contratos de crédito rural e comprovantes de pagamento',
+        'Notificações e cobranças recebidas',
+      ],
+    },
+    {
+      area: 'Direito criminal',
       approved: false,
       reviewedBy: '',
       reviewedAt: '',
       items: [
         'Documento de identificação de quem está fazendo o contato',
-        'Nome completo e, se souber, número de matrícula da pessoa presa',
-        'Número do processo de execução ou da guia de execução, se houver',
-        'Sentença, acórdão ou atestado de pena, se disponíveis',
+        'Intimações, citações, boletim de ocorrência ou decisões recebidas',
+        'Número do processo ou do inquérito, se houver',
       ],
     },
     {
-      area: 'Relatórios processuais',
+      area: 'Consultoria e estratégia processual',
       approved: false,
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Número do processo de execução, se houver',
-        'Nome completo da pessoa presa e unidade prisional',
-        'Documentos do processo que a família já possua',
-      ],
-    },
-    {
-      area: 'Habilitação para casamento de pessoas privadas de liberdade',
-      approved: false,
-      reviewedBy: '',
-      reviewedAt: '',
-      items: [
-        'Documentos de identificação dos dois noivos',
-        'Certidões de nascimento ou de casamento anterior com averbação, conforme o caso',
-        'Informações da unidade prisional onde a pessoa está',
-      ],
-    },
-    {
-      area: 'Defesa em processo administrativo disciplinar',
-      approved: false,
-      reviewedBy: '',
-      reviewedAt: '',
-      items: [
-        'Comunicado ou documento que informe a falta atribuída',
-        'Data do fato e unidade prisional',
-        'Número do processo de execução, se houver',
-      ],
-    },
-    {
-      area: 'Pedidos de livramento condicional',
-      approved: false,
-      reviewedBy: '',
-      reviewedAt: '',
-      items: [
-        'Número do processo de execução, se houver',
-        'Sentença, acórdão ou atestado de pena, se disponíveis',
-        'Informações sobre trabalho, estudo e comportamento, se a família tiver',
+        'Documento de identificação com foto e CPF/CNPJ',
+        'Contratos, notificações e demais documentos relacionados ao caso',
+        'Número de processos já em andamento, se houver',
       ],
     },
     {
@@ -139,52 +141,53 @@ export const siteConfig = reactive({
       reviewedBy: '',
       reviewedAt: '',
       items: [
-        'Documento de identificação de quem está fazendo o contato',
-        'Dados da pessoa presa (nome completo e unidade prisional)',
-        'Qualquer documento do processo que a família já possua',
+        'Documento de identificação com foto',
+        'Resumo da situação e datas importantes',
+        'Qualquer documento que você já tenha sobre o assunto',
       ],
     },
   ],
 
   professionalProfiles: [
     {
-      slug: 'arlley-abelha',
-      registration: 'OAB/MG 101.840',
+      slug: 'marcos-ferreira',
+      registration: '', // CONFIRMAR: OAB
       education: [], // CONFIRMAR: formação, especializações
       areas: [
-        'Execução penal',
-        'Advocacia criminal',
+        'Direito bancário',
+        'Direito previdenciário',
+        'Direito agrário',
+        'Direito criminal',
       ],
-      // CONFIRMAR: o "mais de 20 anos" vem da descrição do curso na Hotmart.
-      biography: 'Arlley Abelha é advogado inscrito na OAB/MG sob o número 101.840 e dirige um escritório de assistência jurídica para pessoas privadas de liberdade e seus familiares. Atua em execução penal, com atendimento humanizado e atuação em todo o Brasil, e tem mais de 20 anos de experiência em advocacia criminal.',
-      email: '',
+      biography: 'Marcos Ferreira é presidente e advogado líder da MF Soluções, escritório com atuação em Direito Bancário, Previdenciário e Agrário, e também em Direito Criminal. Defende que uma defesa eficaz transforma disputas complexas em resoluções claras, capacitando os clientes em cada etapa.',
+      email: 'contato@mfsolucoes.com',
       whatsapp: '',
     },
   ],
 
   social: {
-    instagram: '', // CONFIRMAR: o Instagram não consta nos sites
+    instagram: '', // CONFIRMAR: @ do Instagram do escritório
   },
 
   linkBio: {
-    title: 'Arlley Abelha',
-    eyebrow: 'Advocacia · Execução Penal',
-    description: 'Assistência jurídica para pessoas privadas de liberdade e seus familiares, com atendimento humanizado. Atuação em todo o Brasil.',
+    title: 'MF Soluções',
+    eyebrow: 'Jurídico · Bancário · Previdenciário · Agrário',
+    description: 'Ética, agilidade e eficiência. Protegendo seus direitos financeiros com dedicação.',
     coverImage: '',
     coverAlt: '',
     teamTitle: 'Fale com o advogado',
-    whatsappMessage: 'Olá! Vim pelo link da bio e preciso de um especialista em execução penal.',
+    whatsappMessage: 'Olá! Vim pelo link da bio e preciso de orientação jurídica com a MF Soluções.',
     // Mostra no máximo 3 pessoas de team. Para ocultar uma, use linkBio: false nela.
     quickLinks: [
       {
         label: 'Conheça o escritório',
-        description: 'Assistência jurídica em execução penal, com atuação em todo o Brasil.',
+        description: 'Especialistas em Direito Bancário, Previdenciário e Agrário.',
         href: '#inicio',
         icon: 'mdi-web',
       },
       {
         label: 'Entre em contato',
-        description: 'Atendimento online e presencial em Betim/MG.',
+        description: 'Escritórios na Barra da Tijuca e em Sepetiba, Rio de Janeiro/RJ.',
         href: '#contato',
         icon: 'mdi-message-text-outline',
       },
@@ -197,116 +200,71 @@ export const siteConfig = reactive({
   // enabled: true   → cada item vira um banner horizontal com título e botão.
   // Imagens: coloque em /public e informe o caminho (ex.: '/media/mapa.jpg').
   // Proporção recomendada da arte: 1200 x 480 px (horizontal).
+  // O MF Soluções não vende cursos ou materiais: seção desligada.
   // ─────────────────────────────────────────────────────────────────────────
   products: {
-    enabled: true,
-    showOnSite: true,
-    showOnLinkBio: true,
-    eyebrow: 'Materiais e cursos',
-    title: 'Conhecimento que também vira material',
-    description: 'Além do atendimento jurídico, o escritório compartilha o que aprendeu na prática em cursos e materiais. Escolha o que faz sentido para você.',
-    // Aviso (popup) que apresenta os produtos à venda. Aparece uma vez por visitante
-    // dentro de `frequencyDays`, só na página inicial, depois do aviso de cookies.
+    enabled: false,
+    showOnSite: false,
+    showOnLinkBio: false,
+    eyebrow: '',
+    title: '',
+    description: '',
     popup: {
-      enabled: true,
-      delayMs: 9000, // abre após este tempo...
-      scrollPercent: 35, // ...ou quando a pessoa rolar esta % da página (o que vier primeiro)
-      frequencyDays: 3, // depois de fechado, só volta a aparecer após N dias
-      eyebrow: 'Novidade no escritório',
-      title: 'Agora temos materiais à venda',
-      text: 'Além do atendimento jurídico, você já pode conhecer os cursos e materiais do Arlley Abelha, feitos para quem quer aprender com a prática.',
-      buttonLabel: 'Conhecer o material',
+      enabled: false,
+      delayMs: 9000,
+      scrollPercent: 35,
+      frequencyDays: false,
+      eyebrow: '',
+      title: '',
+      text: '',
+      buttonLabel: '',
       dismissLabel: 'Agora não',
-      allLabel: 'Ver todos os materiais',
+      allLabel: '',
     },
-    // Desconto exibido no aviso, no popup, na vitrine e na página de vendas.
-    // IMPORTANTE: o desconto precisa existir de verdade na Hotmart (preço promocional ou cupom).
-    // `endsAt` (opcional, ex.: '2026-12-31T23:59:00-03:00') liga a contagem regressiva;
-    // depois dessa data o desconto some sozinho de todo o site. Deixe '' para não usar prazo.
     discount: {
-      enabled: true,
-      percent: 20,
+      enabled: false,
+      percent: 0,
       label: 'de desconto',
-      coupon: '', // CONFIRMAR: cupom da Hotmart (opcional). Aparece com botão "copiar".
+      coupon: '',
       endsAt: '',
     },
-    // Notificação no canto superior direito. Textos aceitam {percent}, {product} e {count}.
     toast: {
-      enabled: true,
-      firstDelayMs: 12000, // 1ª aparição
-      intervalMs: 20000, // intervalo entre as aparições
-      durationMs: 7000, // quanto tempo fica na tela
-      maxShows: 0, // 0 = sem limite
-      stopWhenDismissed: true, // se a pessoa fechar no X, não aparece mais nesta visita
-      buttonLabel: 'Ver oferta',
-      messages: [
-        '{percent}% de desconto no {product}',
-        'Mais de {count} advogados já aprendem com este método',
-        'Aprenda a conduzir audiências com mais confiança',
-      ],
+      enabled: false,
+      firstDelayMs: 1000,
+      intervalMs: 5000,
+      durationMs: 7000,
+      maxShows: 0,
+      stopWhenDismissed: false,
+      buttonLabel: '',
+      messages: [],
     },
-    // Página completa de vendas (rota própria). Para desligar: enabled: false.
     page: {
-      enabled: true,
+      enabled: false,
       path: '/produtos',
       navLabel: 'Produtos',
-      eyebrow: 'Curso para advogados',
-      title: 'Conduza audiências com mais segurança e perguntas mais certeiras',
-      lead: 'O Mapa da Inquirição ensina a identificar os 4 perfis de testemunhas e a adaptar suas perguntas a cada um. Método prático de quem atua na área.',
-      chips: ['Acesso pela Hotmart', 'Conteúdo prático', 'Para advogados e advogadas'],
-      buyLabel: 'Quero o Mapa da Inquirição',
-      questionsLabel: 'Tirar dúvidas no WhatsApp',
+      eyebrow: '',
+      title: '',
+      lead: '',
+      chips: [],
+      buyLabel: '',
+      questionsLabel: '',
       proof: {
-        stats: [
-          { value: 50, prefix: '+', label: 'advogados satisfeitos' }, // CONFIRMAR: número real e comprovável
-          { value: 4, prefix: '', label: 'perfis de testemunhas no método' },
-        ],
-        testimonials: [
-          // { name: 'Nome', role: 'Advogado(a) · OAB/UF', text: 'Depoimento autorizado.' },
-        ],
+        stats: [],
+        testimonials: [],
       },
-      methodTitle: 'Como o método funciona',
-      methodLead: 'Três movimentos simples para sair do improviso e entrar na audiência com um roteiro.',
-      // CONFIRMAR: ajuste os textos ao conteúdo real do curso.
-      steps: [
-        { icon: 'mdi-account-search-outline', title: 'Identifique o perfil', text: 'Aprenda a reconhecer, logo nos primeiros minutos, com qual dos 4 perfis de testemunha você está lidando.' },
-        { icon: 'mdi-help-circle-outline', title: 'Faça as perguntas certas', text: 'Adapte a forma e a ordem das perguntas ao perfil da testemunha para obter respostas úteis ao seu caso.' },
-        { icon: 'mdi-shield-check-outline', title: 'Conduza com confiança', text: 'Entre na audiência com um caminho claro, menos improviso e mais controle sobre a inquirição.' },
-      ],
-      offerTitle: 'Condição especial para você começar agora',
-      offerNote: 'O acesso e o pagamento são feitos com segurança pela Hotmart.',
-      guarantee: '', // CONFIRMAR: política de garantia/reembolso da Hotmart (deixe vazio para não exibir)
-      faqTitle: 'Perguntas frequentes',
-      faq: [
-        { question: 'Para quem é o Mapa da Inquirição?', answer: 'Para advogados e advogadas que atuam em audiências e querem conduzir a inquirição de testemunhas com mais método.' },
-        { question: 'Como recebo o acesso?', answer: 'A compra é feita na Hotmart. Depois da confirmação do pagamento, o acesso é liberado por lá.' },
-        { question: 'Posso tirar dúvidas antes de comprar?', answer: 'Sim. Use o botão de WhatsApp desta página e fale com o escritório.' },
-      ],
-      finalTitle: 'Pronto para levar mais método à sua próxima audiência?',
-      finalText: 'Conheça o conteúdo e comece quando quiser.',
-      disclaimer: 'Conteúdo educativo, sem promessa de resultado em processos. Cada caso depende de suas circunstâncias.',
+      methodTitle: '',
+      methodLead: '',
+      steps: [],
+      offerTitle: '',
+      offerNote: '',
+      guarantee: '',
+      faqTitle: '',
+      faq: [],
+      finalTitle: '',
+      finalText: '',
+      disclaimer: '',
     },
-    items: [
-      {
-        title: 'Mapa da Inquirição',
-        description: 'Aprenda a identificar os 4 perfis de testemunhas e a fazer as perguntas certas para conduzir audiências com mais confiança.',
-        // CONFIRMAR: imagem hospedada na Hotmart (quadrada, pode ser cortada no banner).
-        // Ideal: baixar, criar uma arte horizontal 1200x480 e salvar em /public/media/.
-        image: '/media/mapa.png',
-        imageAlt: 'Capa do curso Mapa da Inquirição',
-        badge: 'Para advogados',
-        audience: 'advogados', // 'advogados' | 'clientes' (usado nos filtros da vitrine)
-        price: '', // CONFIRMAR: preço atual na Hotmart (texto livre, ex.: 'R$ 197')
-        priceValue: 0, // CONFIRMAR: valor com desconto (número, ex.: 197). Com os dois valores, o preço "cai" animado na página de vendas.
-        oldPriceValue: 0, // CONFIRMAR: valor sem desconto (número, ex.: 247)
-        buttonLabel: 'Saiba mais',
-        url: 'https://hotmart.com/pt-br/marketplace/produtos/mapa-da-inquiricao/M102229646W',
-        whatsappMessage: 'Olá! Vi o Mapa da Inquirição no site e gostaria de saber mais.',
-        external: true,
-        showOnSite: true,
-        showOnLinkBio: true,
-      },
-    ],
+    items: [],
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -318,19 +276,19 @@ export const siteConfig = reactive({
   // aquela opção é encaminhado para esse número.
   // ─────────────────────────────────────────────────────────────────────────
   quiz: {
-    enabled: false,
-    showOnSite: false,
-    showOnLinkBio: false,
+    enabled: true,
+    showOnSite: true,
+    showOnLinkBio: true,
     buttonLabel: 'Responder questionário',
     buttonDescription: 'Leva cerca de 3 minutos e agiliza seu atendimento',
-    pageTitle: 'Vamos entender o caso',
-    pageIntro: 'Responda algumas perguntas rápidas sobre a situação da pessoa que está cumprindo pena. No final, enviamos tudo organizado para o WhatsApp do escritório, para que o atendimento comece mais rápido.',
+    pageTitle: 'Vamos entender o seu caso',
+    pageIntro: 'Responda algumas perguntas rápidas sobre a sua situação. No final, enviamos tudo organizado para o WhatsApp do escritório, para que o atendimento comece mais rápido.',
     estimatedTime: '3 minutos',
-    privacyNote: 'Se tiver o número do processo, pode informar. Não envie senhas nem fotos de documentos. Nada é salvo em servidor: você só envia o que quiser.',
+    privacyNote: 'Se tiver o número do processo, pode informar. Não envie senhas, códigos SMS nem fotos de documentos. Nada é salvo em servidor: você só envia o que quiser.',
     whatsapp: '', // vazio: usa contact.whatsapp
     requireConsent: true,
     consentText: 'Concordo em compartilhar estas informações com o escritório pelo WhatsApp para receber orientação.',
-    messageIntro: 'Olá! Respondi o questionário do site de Arlley Abelha Advocacia. Seguem minhas respostas:',
+    messageIntro: 'Olá! Respondi o questionário do site da MF Soluções. Seguem minhas respostas:',
     finishTitle: 'Tudo pronto!',
     finishText: 'Confira o resumo e toque no botão para enviar suas respostas pelo WhatsApp.',
     finishButton: 'Enviar respostas pelo WhatsApp',
@@ -347,16 +305,17 @@ export const siteConfig = reactive({
       },
       {
         id: 'quem',
-        label: 'Quem está pedindo ajuda',
+        label: 'Perfil de quem pede ajuda',
         title: 'Quem está pedindo ajuda?',
-        help: 'Muitos contatos vêm de familiares. A pessoa presa também pode ser atendida.',
+        help: 'Isso nos ajuda a direcionar o atendimento para o especialista certo.',
         type: 'single',
         required: true,
         icon: 'mdi-account-group-outline',
         options: [
-          { label: 'Sou familiar ou companheiro(a) de uma pessoa presa', value: 'familiar' },
-          { label: 'Sou a própria pessoa (liberdade condicional ou regime aberto)', value: 'proprio' },
-          { label: 'Sou advogado(a) ou outro profissional', value: 'profissional' },
+          { label: 'Pessoa física (eu mesmo)', value: 'pf' },
+          { label: 'Produtor rural / proprietário de terras', value: 'rural' },
+          { label: 'Empresa ou empreendedor', value: 'empresa' },
+          { label: 'Familiar ou outra pessoa em nome de alguém', value: 'familiar' },
         ],
       },
       {
@@ -368,78 +327,89 @@ export const siteConfig = reactive({
         required: true,
         icon: 'mdi-scale-balance',
         options: [
-          { label: 'Pedido de progressão de regime', value: 'progressao' },
-          { label: 'Relatório do processo (entender a situação)', value: 'relatorio' },
-          { label: 'Casamento com pessoa privada de liberdade', value: 'casamento' },
-          { label: 'Defesa em processo disciplinar (falta na unidade)', value: 'pad' },
-          { label: 'Pedido de livramento condicional', value: 'livramento' },
-          { label: 'Outro assunto de execução penal / não sei', value: 'outro' },
-        ],
-      },
-      {
-        id: 'regime',
-        label: 'Regime atual',
-        title: 'Em qual regime a pessoa está?',
-        help: 'Se não souber, marque “Não sei”. O advogado confere no processo.',
-        type: 'single',
-        required: true,
-        icon: 'mdi-home-lock-outline',
-        options: [
-          'Fechado',
-          'Semiaberto',
-          'Aberto ou prisão domiciliar',
-          'Livramento condicional',
-          'Ainda aguardando julgamento (sem condenação definitiva)',
-          'Não sei',
+          { label: 'Direito bancário (empréstimos, financiamentos, juros, cobranças)', value: 'bancario' },
+          { label: 'Direito previdenciário (INSS, aposentadoria, benefícios)', value: 'previdenciario' },
+          { label: 'Direito agrário (propriedade rural, crédito e dívidas rurais)', value: 'agrario' },
+          { label: 'Direito criminal', value: 'criminal' },
+          { label: 'Avaliação jurídica / outro assunto / não sei', value: 'outro' },
         ],
       },
       // ── Perguntas que só aparecem conforme a resposta anterior (showIf) ──
       {
-        id: 'pena',
-        label: 'Pena e tempo cumprido',
-        title: 'Você sabe o tempo da pena e quanto já foi cumprido?',
-        help: 'Uma ideia aproximada já ajuda a avaliar a situação. Pode deixar em branco.',
-        type: 'text',
-        placeholder: 'Ex.: pena de 8 anos, cumpridos cerca de 3',
-        required: false,
-        icon: 'mdi-calendar-range',
-        showIf: { question: 'area', is: ['progressao', 'livramento', 'relatorio'] },
-      },
-      {
-        id: 'pad_fase',
-        label: 'Fase do processo disciplinar',
-        title: 'Em que fase está o processo disciplinar?',
-        help: 'A falta grave pode afetar os benefícios, então o prazo importa.',
+        id: 'bancario_tipo',
+        label: 'Tipo de problema bancário',
+        title: 'Qual é a situação com o banco?',
+        help: 'Escolha a opção mais próxima. Os detalhes ficam para a conversa.',
         type: 'single',
         required: true,
-        icon: 'mdi-gavel',
-        showIf: { question: 'area', is: ['pad'] },
+        icon: 'mdi-bank-outline',
+        showIf: { question: 'area', is: ['bancario'] },
         options: [
-          'Foi informada uma falta, mas o procedimento ainda não começou',
-          'O procedimento disciplinar está em andamento',
-          'Já houve decisão reconhecendo a falta',
-          'Não sei',
+          'Juros ou tarifas que parecem abusivos',
+          'Venda casada (seguro ou capitalização imposto)',
+          'Descontos automáticos na conta ou no benefício',
+          'Financiamento de imóvel ou veículo em atraso (alienação fiduciária)',
+          'Cobrança indevida, negativação ou fraude',
+          'Quero uma análise preventiva do contrato',
+          'Outro / não sei',
         ],
       },
       {
-        id: 'casamento_fase',
-        label: 'Etapa do casamento',
-        title: 'Em que etapa está o casamento?',
-        help: 'Assim sabemos por onde começar a organização dos documentos.',
+        id: 'previdenciario_tipo',
+        label: 'Tipo de assunto previdenciário',
+        title: 'O que você precisa na área previdenciária?',
+        help: 'Escolha a opção mais próxima do seu caso.',
         type: 'single',
         required: true,
-        icon: 'mdi-ring',
-        showIf: { question: 'area', is: ['casamento'] },
+        icon: 'mdi-card-account-details-outline',
+        showIf: { question: 'area', is: ['previdenciario'] },
         options: [
-          'Ainda não iniciamos',
-          'Já temos alguns documentos',
-          'Já iniciamos a habilitação no cartório',
+          'Aposentadoria',
+          'Benefício negado ou cortado pelo INSS',
+          'Auxílio por incapacidade (doença ou acidente)',
+          'Pensão por morte',
+          'Revisão de benefício',
+          'Outro / não sei',
+        ],
+      },
+      {
+        id: 'agrario_tipo',
+        label: 'Tipo de assunto agrário',
+        title: 'O que você precisa na área agrária?',
+        help: 'Escolha a opção mais próxima do seu caso.',
+        type: 'single',
+        required: true,
+        icon: 'mdi-barn',
+        showIf: { question: 'area', is: ['agrario'] },
+        options: [
+          'Dívida ou financiamento rural com o banco',
+          'Cédula ou contrato de crédito rural',
+          'Regularização ou disputa de terras',
+          'Contrato de arrendamento ou parceria rural',
+          'Outro / não sei',
+        ],
+      },
+      {
+        id: 'criminal_fase',
+        label: 'Fase do caso criminal',
+        title: 'Em que fase está o caso?',
+        help: 'Se não souber, marque “Não sei”. O advogado confere.',
+        type: 'single',
+        required: true,
+        icon: 'mdi-gavel',
+        showIf: { question: 'area', is: ['criminal'] },
+        options: [
+          'Investigação / inquérito',
+          'Processo em andamento',
+          'Já houve sentença',
+          'Preciso de orientação antes de qualquer coisa',
+          'Não sei',
         ],
       },
       {
         id: 'processo',
         label: 'Número do processo',
-        title: 'Você tem o número do processo de execução?',
+        title: 'Você tem o número de algum processo relacionado?',
         help: 'Opcional. Se tiver, ajuda a localizar o andamento. Se não tiver, tudo bem.',
         type: 'text',
         placeholder: 'Número do processo (opcional)',
@@ -448,8 +418,8 @@ export const siteConfig = reactive({
       },
       {
         id: 'urgencia',
-        label: 'Audiência, prazo ou decisão próxima',
-        title: 'Há audiência, prazo ou decisão próxima?',
+        label: 'Audiência, prazo ou cobrança próxima',
+        title: 'Há audiência, prazo ou cobrança próxima?',
         help: 'Isso ajuda a equipe a priorizar casos com data marcada.',
         type: 'single',
         required: true,
@@ -476,11 +446,16 @@ export const siteConfig = reactive({
         id: 'atendimento',
         label: 'Formato preferido',
         title: 'Como prefere ser atendido?',
-        help: 'O escritório fica em Betim/MG e atende online em todo o Brasil.',
+        help: 'O escritório tem unidades na Barra da Tijuca e em Sepetiba, no Rio de Janeiro.',
         type: 'single',
         required: true,
         icon: 'mdi-video-outline',
-        options: ['Online (WhatsApp ou vídeo)', 'Presencial em Betim/MG', 'Tanto faz'],
+        options: [
+          'Online (WhatsApp ou vídeo)',
+          'Presencial na Barra da Tijuca',
+          'Presencial em Sepetiba',
+          'Tanto faz',
+        ],
       },
       {
         id: 'relato',
@@ -488,7 +463,7 @@ export const siteConfig = reactive({
         title: 'Quer contar em poucas palavras a situação?',
         help: 'Opcional. Um resumo curto já ajuda muito. Os detalhes ficam para a conversa.',
         type: 'textarea',
-        placeholder: 'Ex.: Meu irmão está no regime fechado e queremos saber se já pode pedir progressão...',
+        placeholder: 'Ex.: Fiz um empréstimo e os juros cobrados estão muito acima do contratado...',
         required: false,
         icon: 'mdi-text-box-outline',
       },
@@ -523,108 +498,68 @@ export const siteConfig = reactive({
   // ─────────────────────────────────────────────────────────────────────────
   // PRIVACIDADE (LGPD) E COOKIES
   // analytics.enabled: true + ga4Id/metaPixelId → aparece o aviso de cookies.
-  // O site antigo arlleyabelha.com.br usava Google Tag Manager (GTM-MHKLJ74R).
-  // Para continuar medindo, informe aqui o ID do GA4 (G-XXXXXXXXXX) que alimenta
-  // essa conta, e/ou o ID do Pixel da Meta.
   // ─────────────────────────────────────────────────────────────────────────
   privacy: {
     enabled: true,
-    lastUpdate: '19/11/2026',
-    controllerName: 'Arlley Abelha Sociedade Individual de Advocacia',
-    document: 'CNPJ 52.547.721/0001-10',
-    contactEmail: '', // vazio: usa contact.email; se também vazio, usa o WhatsApp
+    lastUpdate: '23/11/2026',
+    controllerName: 'MF Soluções', // CONFIRMAR: razão social completa (consta apenas o CNPJ no site antigo)
+    document: 'CNPJ 61.689.269/0001-11',
+    contactEmail: '', // vazio: usa contact.email
     retentionNote: 'Mantemos as informações pelo tempo necessário para o atendimento solicitado e para cumprir obrigações legais e profissionais.',
   },
 
   analytics: {
-    enabled: true,
-    ga4Id: 'G-7QV205T34P', 
+    enabled: false, // ligue quando houver ID próprio do cliente
+    ga4Id: '', // CONFIRMAR: ID do GA4 (G-XXXXXXXXXX) do MF Soluções
     metaPixelId: '',
-    bannerTitle: 'Sua privacidade', 
-    bannerText: 'Usamos cookies de medição para entender como o site é usado e melhorar o atendimento. Eles só são ativados se você aceitar..',
+    bannerTitle: 'Sua privacidade',
+    bannerText: 'Usamos cookies de medição para entender como o site é usado e melhorar o atendimento. Eles só são ativados se você aceitar.',
   },
 
   // ─────────────────────────────────────────────────────────────────────────
   // ARTIGOS (blog) → /blog e /blog/<slug>
-  // Os artigos abaixo são MODELOS informativos escritos a partir dos serviços
-  // do site. CONFIRMAR: o advogado deve revisar tudo antes de publicar.
+  // O artigo abaixo vem do site antigo ("10 Estratégias para Proteger Seus
+  // Contratos Bancários"). CONFIRMAR: o advogado deve revisar antes de publicar.
   // ─────────────────────────────────────────────────────────────────────────
   blog: {
-    enabled: false,
+    enabled: true,
     title: 'Artigos',
     eyebrow: 'Informação jurídica',
-    description: 'Conteúdos informativos sobre execução penal para pessoas presas e seus familiares.',
-    showOnHome: false,
+    description: 'Conteúdos informativos sobre Direito Bancário, Previdenciário e Agrário.',
+    showOnHome: true,
     disclaimer: 'Conteúdo informativo, de caráter geral. Não substitui a análise do caso por advogado(a).',
     posts: [
       {
-        slug: 'progressao-de-regime-como-funciona',
-        title: 'Progressão de regime: como funciona o cumprimento da pena?',
-        excerpt: 'Entenda como a pena é cumprida de forma progressiva e o que costuma ser analisado no pedido de progressão de regime.',
-        date: '2026-11-12',
-        category: 'Progressão de regime',
-        area: 'progressao-de-regime',
+        slug: '10-estrategias-para-proteger-seus-contratos-bancarios',
+        title: '10 estratégias para proteger seus contratos bancários',
+        excerpt: 'Venda casada, CET, multas e alienação fiduciária: dicas práticas para analisar um contrato antes e depois de assinar.',
+        date: '2026-11-23',
+        category: 'Direito bancário',
+        area: 'litigio-bancario',
         readingTime: '3 min',
         image: '',
         body: [
-          { type: 'p', text: 'No Brasil, a pena privativa de liberdade é cumprida de forma progressiva. Conforme o tempo cumprido e o comportamento da pessoa, ela pode passar para um regime mais brando: por exemplo, do fechado para o semiaberto e do semiaberto para o aberto.' },
-          { type: 'h2', text: 'O que costuma ser analisado' },
+          { type: 'p', text: 'Contratos bancários costumam ter cláusulas que passam despercebidas e encarecem a dívida. Estes cuidados ajudam a proteger seu patrimônio.' },
+          { type: 'h2', text: 'Antes de assinar' },
           { type: 'ul', items: [
-            'Quanto da pena já foi cumprido (o percentual varia conforme o crime e a situação de cada pessoa);',
-            'O comportamento durante o cumprimento da pena;',
-            'Outros requisitos previstos em lei para cada caso.',
+            'Cuidado com a venda casada: o banco não pode obrigar você a contratar seguros ou títulos de capitalização para liberar o crédito;',
+            'Olhe o CET (Custo Efetivo Total), e não apenas os juros: é nele que aparecem tarifas e taxas que encarecem o contrato;',
+            'Exija a sua cópia na hora e não feche o aplicativo sem salvar a sua via assinada, pois ela é essencial para qualquer defesa futura;',
+            'Assine contratos digitais somente por links oficiais e nunca envie códigos SMS ou links de validação para intermediários;',
+            'Em contratos de valores altos, uma análise com especialistas antes de assinar evita juros abusivos e processos demorados.',
           ] },
-          { type: 'h2', text: 'Quem decide' },
-          { type: 'p', text: 'O pedido é analisado pelo juízo da execução penal, que avalia a documentação e o histórico do processo.' },
-          { type: 'h2', text: 'Por que acompanhar o processo de perto' },
-          { type: 'p', text: 'Datas e percentuais dependem de cálculos que mudam com fatores como remição e faltas disciplinares. Um relatório do processo ajuda a família a entender o que esperar. Cada caso exige análise individual.' },
-        ],
-      },
-      {
-        slug: 'falta-grave-o-que-e-e-por-que-a-defesa-importa',
-        title: 'Falta grave na prisão: o que é e por que a defesa importa',
-        excerpt: 'A pessoa presa pode responder a procedimento disciplinar. Veja por que a falta grave preocupa e por que a defesa técnica é importante.',
-        date: '2026-11-05',
-        category: 'Processo disciplinar',
-        area: 'defesa-processo-disciplinar',
-        readingTime: '3 min',
-        image: '',
-        body: [
-          { type: 'p', text: 'Quando a pessoa presa é acusada de descumprir regras da unidade prisional, pode responder a um procedimento disciplinar. As faltas são classificadas como leves, médias ou graves.' },
-          { type: 'h2', text: 'Por que a falta grave preocupa' },
+          { type: 'h2', text: 'Durante o contrato' },
           { type: 'ul', items: [
-            'Pode afetar a concessão de benefícios;',
-            'Pode levar à regressão de regime;',
-            'Pode reduzir dias já remidos;',
-            'Pode alterar a data usada para calcular novos benefícios.',
+            'Guarde todas as provas: prints de simulações, conversas de WhatsApp e e-mails com o gerente;',
+            'Confira se o contrato garante o direito de quitar parcelas antes do prazo com abatimento proporcional dos juros;',
+            'Fique atento a cláusulas que autorizam descontos automáticos na conta-salário ou na poupança para cobrir parcelas vencidas.',
           ] },
-          { type: 'h2', text: 'A importância da defesa técnica' },
-          { type: 'p', text: 'O procedimento deve respeitar o direito de defesa. Uma defesa técnica e bem fundamentada busca evitar a aplicação da falta ou reduzir seus efeitos. Não há garantia de resultado: cada caso depende das provas e da análise de quem decide.' },
-          { type: 'h2', text: 'O que a família pode fazer' },
-          { type: 'p', text: 'Reúna as informações recebidas (comunicado, datas e unidade prisional) e procure orientação o quanto antes, pois existem prazos.' },
-        ],
-      },
-      {
-        slug: 'livramento-condicional-o-que-e',
-        title: 'Livramento condicional: o que é e como funciona',
-        excerpt: 'A lei permite que parte da pena seja cumprida em liberdade. Entenda os requisitos gerais e as condições do benefício.',
-        date: '2026-10-29',
-        category: 'Livramento condicional',
-        area: 'livramento-condicional',
-        readingTime: '2 min',
-        image: '',
-        body: [
-          { type: 'p', text: 'O livramento condicional permite que a pessoa cumpra o restante da pena em liberdade, desde que preencha os requisitos da lei e respeite as condições impostas pela Justiça.' },
-          { type: 'h2', text: 'Requisitos gerais' },
+          { type: 'h2', text: 'Financiamentos e atrasos' },
           { type: 'ul', items: [
-            'Cumprimento de parte da pena (a fração varia conforme o caso);',
-            'Comportamento satisfatório durante a execução;',
-            'Outros requisitos previstos em lei.',
+            'Em financiamentos de imóveis ou veículos (alienação fiduciária), entenda os prazos de retomada do bem em caso de atraso;',
+            'A multa por atraso em contratos de consumo não pode ultrapassar o teto de 2% previsto no Código de Defesa do Consumidor.',
           ] },
-          { type: 'h2', text: 'Durante o livramento' },
-          { type: 'p', text: 'A pessoa deve cumprir as condições fixadas pelo juízo. O descumprimento pode levar à revogação do benefício.' },
-          { type: 'h2', text: 'Como o pedido é analisado' },
-          { type: 'p', text: 'O pedido é analisado pelo juízo da execução penal, com base no processo. Por isso, conferir a situação atual da pena é o primeiro passo.' },
+          { type: 'p', text: 'Cada contrato tem particularidades. Uma análise individual indica o que pode ser feito no seu caso, sem garantia de resultado.' },
         ],
       },
     ],
@@ -639,195 +574,200 @@ export const siteConfig = reactive({
       enabled: true,
     },
     sectionMessages: {
-      areas: 'Olá! Estava vendo os serviços de execução penal no site e gostaria de orientação.',
-      produtos: 'Olá! Vi o Mapa da Inquirição no site e gostaria de saber mais.',
+      areas: 'Olá! Estava vendo as áreas de atuação no site da MF Soluções e gostaria de orientação.',
+      produtos: 'Olá! Vim pelo site da MF Soluções e gostaria de saber mais.',
       equipe: 'Olá! Conheci o escritório pelo site e gostaria de falar com o advogado.',
-      artigos: 'Olá! Li os artigos do site e tenho uma dúvida sobre um caso de execução penal.',
+      artigos: 'Olá! Li os artigos do site e tenho uma dúvida sobre um contrato ou caso.',
       avaliacoes: 'Olá! Vi as avaliações do escritório e gostaria de atendimento.',
-      contato: 'Olá! Vim pela seção de contato do site e preciso de um especialista em execução penal.',
+      contato: 'Olá! Vim pela seção de contato do site e preciso de orientação jurídica.',
     },
   },
- 
+
   // As notas e avaliações são obtidas pelo servidor; nunca preencha notas fictícias.
   // ATENÇÃO: desligado de propósito. O servidor de avaliações usa o perfil do Google
-  // configurado no ambiente; só ligue depois de conectar o perfil do Arlley Abelha,
+  // configurado no ambiente; só ligue depois de conectar o perfil do MF Soluções,
   // para não exibir avaliações de outro escritório.
-googleReviews: {
-  enabled: true,
-  showOnLinkBio: true,
-  endpoint: '/api/google-reviews',
-  title: 'Avaliações no Google',
-  description: 'Veja o que os clientes dizem sobre o atendimento do escritório Arlley Abelha Advocacia.',
-  profileUrl: 'https://www.google.com/maps/search/?api=1&query=Arlley+Abelha+Advocacia+Betim+MG',
-  writeReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJR4zfmEvDpgAR-jyMfr7R_hY',
-},
+  googleReviews: {
+    enabled: false,
+    showOnLinkBio: false,
+    endpoint: '/api/google-reviews',
+    title: 'Avaliações no Google',
+    description: 'Veja o que os clientes dizem sobre o atendimento da MF Soluções.',
+    profileUrl: 'https://www.google.com/maps/search/?api=1&query=MF+Solucoes+Advocacia+Rio+de+Janeiro',
+    writeReviewUrl: '', // CONFIRMAR: link "escrever avaliação" do perfil do Google (placeid do MF Soluções)
+  },
 
   about: {
-    title: 'Assistência jurídica humanizada para pessoas privadas de liberdade e seus familiares',
-    photo: '/media/banners.png', // CONFIRMAR: trocar pela foto do escritório/advogado
-    photoAlt: 'Arlley Abelha Advocacia',
-    // CONFIRMAR: o número de processos muda com o tempo. Atualize ou remova a frase final.
-    text: 'Somos um escritório de assistência jurídica para pessoas que estão privadas de liberdade. Com um atendimento humanizado, lutamos pelos direitos do recluso e de seus familiares. O escritório é dirigido por Arlley Abelha, advogado ativo na OAB/MG sob o número 101.840, atualmente ativo em 1.387 processos.',
-    subtitle: 'Execução penal com atendimento humanizado e atuação em todo o Brasil.',
+    title: 'Soluções inteligentes para problemas reais, com ética, agilidade e eficiência',
+    photo: '/media/banners1.png', // CONFIRMAR: trocar pela foto do escritório/advogado
+    photoAlt: 'MF Soluções',
+    text: 'A MF Soluções é um escritório de alto nível, com abordagem baseada em evidências que busca resultados mensuráveis e protege seus interesses jurídicos. Somos especialistas em Direito Bancário, Previdenciário e Agrário, e também atuamos em Direito Criminal, protegendo seus direitos financeiros com dedicação. O escritório é presidido por Marcos Ferreira e atende na Barra da Tijuca e em Sepetiba, no Rio de Janeiro.',
+    subtitle: 'Direito Bancário, Previdenciário e Agrário com ética, agilidade e eficiência.',
     cards: [
       {
         icon: 'fa-solid fa-handshake-angle',
-        title: 'Atendimento humanizado',
-        desc: 'Atendimento próximo, que acolhe a pessoa presa e a sua família.',
+        title: 'Ética',
+        desc: 'Transparência e respeito em cada etapa do atendimento.',
       },
       {
         icon: 'fa-solid fa-gavel',
         title: 'Defesa técnica',
-        desc: 'Atuação técnica na execução penal para resguardar os direitos do reeducando.',
+        desc: 'Estratégia processual baseada em evidências para proteger seus interesses.',
       },
       {
-        icon: 'fa-solid fa-file-lines',
-        title: 'Clareza para a família',
-        desc: 'Relatórios que explicam a situação do processo de forma clara e objetiva.',
+        icon: 'fa-solid fa-bolt',
+        title: 'Agilidade e eficiência',
+        desc: 'Análise rápida do contrato ou do caso, com explicações em linguagem clara.',
       },
       {
-        icon: 'fa-solid fa-earth-americas',
-        title: 'Atuação em todo o Brasil',
-        desc: 'Atendimento online e presencial, com escritório em Betim/MG.',
+        icon: 'fa-solid fa-location-dot',
+        title: 'Dois escritórios no Rio',
+        desc: 'Unidades na Barra da Tijuca e em Sepetiba, Rio de Janeiro/RJ.',
       },
     ],
   },
 
   practiceAreas: [
     {
-      slug: 'progressao-de-regime',
+      slug: 'litigio-bancario',
       page: true,
-      title: 'Pedidos de progressão de regime',
-      description: 'O sistema prisional estabelece o cumprimento da pena de forma progressiva: conforme o tempo cumprido e o comportamento, a pessoa pode passar para um regime mais brando, como do fechado para o semiaberto e do semiaberto para o aberto.',
-      icon: 'fa-solid fa-stairs',
-      pageTitle: 'Pedido de progressão de regime: advogado de execução penal em Betim/MG e todo o Brasil',
-      intro: 'A progressão de regime permite que a pena seja cumprida de forma mais branda quando a lei autoriza. O escritório analisa o processo, verifica os requisitos e acompanha o pedido até a decisão.',
+      title: 'Litígio bancário',
+      description: 'Para quem enfrenta custos elevados de empréstimos e termos bancários injustos, soluções jurídicas decisivas para proteger seus direitos financeiros.',
+      icon: 'fa-solid fa-building-columns',
+      pageTitle: 'Advogado bancário no Rio de Janeiro: juros abusivos, contratos e cobranças',
+      intro: 'Empreendedores e pessoas físicas enfrentam juros elevados, tarifas escondidas e cláusulas injustas. O escritório analisa o contrato, identifica possíveis abusos e atua para proteger seu patrimônio.',
       topics: [
-        'Análise do tempo de pena cumprido e dos requisitos',
-        'Pedido de progressão do regime fechado para o semiaberto',
-        'Pedido de progressão do regime semiaberto para o aberto',
-        'Acompanhamento do andamento e das decisões',
+        'Análise de contratos de empréstimo e financiamento',
+        'Venda casada, tarifas e Custo Efetivo Total (CET)',
+        'Alienação fiduciária de imóveis e veículos',
+        'Descontos automáticos e cobranças indevidas',
+        'Auditoria bancária preventiva antes de assinar',
       ],
       faq: [
         {
-          question: 'O que é progressão de regime?',
-          answer: 'É a passagem da pessoa condenada para um regime de cumprimento de pena mais brando, por exemplo do fechado para o semiaberto e do semiaberto para o aberto, de acordo com o tempo cumprido e o comportamento.',
+          question: 'O banco pode me obrigar a contratar um seguro para liberar o crédito?',
+          answer: 'Não. A venda casada, que condiciona o crédito à contratação de seguros ou títulos de capitalização, é prática ilegal. Cada caso deve ser analisado pelo advogado.',
         },
         {
-          question: 'Toda pessoa presa tem direito à progressão?',
-          answer: 'A lei prevê a progressão quando os requisitos são cumpridos, como o tempo de pena e o comportamento. Os critérios variam conforme o crime e a situação de cada pessoa, por isso é necessário analisar o processo.',
+          question: 'Por que olhar o CET e não só os juros?',
+          answer: 'Porque o Custo Efetivo Total reúne tarifas, taxas e encargos que encarecem o contrato e muitas vezes não aparecem na taxa de juros anunciada.',
+        },
+        {
+          question: 'Qual é o limite da multa por atraso?',
+          answer: 'Em contratos de consumo, a multa por atraso não pode ultrapassar 2%, conforme o Código de Defesa do Consumidor. Cada caso exige análise do contrato.',
         },
       ],
     },
     {
-      slug: 'relatorios-processuais',
+      slug: 'direito-previdenciario',
       page: true,
-      title: 'Relatórios processuais',
-      description: 'Muitas vezes os familiares não conseguem entender a situação atual e futura do processo. O relatório permite compreender, de forma clara e objetiva, os benefícios a que o reeducando tem direito.',
-      icon: 'fa-solid fa-file-lines',
-      pageTitle: 'Relatório do processo de execução penal: entenda a situação da pena',
-      intro: 'O relatório processual traduz o processo para uma linguagem clara, para que a família saiba onde o caso está e o que pode acontecer nos próximos passos.',
+      title: 'Direito previdenciário',
+      description: 'Orientação e atuação em benefícios do INSS, para que você receba o que a lei garante com segurança e agilidade.', // CONFIRMAR: o site antigo não detalha esta área
+      icon: 'fa-solid fa-user-shield',
+      pageTitle: 'Advogado previdenciário no Rio de Janeiro: INSS, aposentadoria e benefícios',
+      intro: 'Aposentadorias, auxílios e pensões envolvem regras e prazos que mudam de caso a caso. O escritório analisa a sua situação e orienta os próximos passos com clareza.',
       topics: [
-        'Situação atual do processo de execução',
-        'Benefícios a que a pessoa pode ter direito e previsão de datas',
-        'Explicação em linguagem clara para os familiares',
+        'Análise para pedido de aposentadoria',
+        'Benefícios negados ou cortados pelo INSS',
+        'Auxílio por incapacidade e pensão por morte',
+        'Revisão de benefícios',
       ],
       faq: [
         {
-          question: 'Para quem serve o relatório processual?',
-          answer: 'Para familiares e para a própria pessoa que cumpre pena e quer entender o andamento do processo e as possibilidades de benefícios, sem depender de termos técnicos.',
+          question: 'O que o escritório faz na área previdenciária?',
+          answer: 'Analisa a sua situação, orienta sobre os benefícios possíveis e atua nos pedidos e recursos necessários junto ao INSS ou na Justiça, conforme o caso.',
         },
         {
-          question: 'O relatório garante a concessão de benefícios?',
-          answer: 'Não. Ele explica a situação e as possibilidades. A concessão de qualquer benefício depende da análise do juízo da execução, conforme os requisitos da lei.',
+          question: 'O escritório garante a concessão do benefício?',
+          answer: 'Não. Nenhum advogado pode garantir resultado. A concessão depende da análise do INSS ou do juízo, conforme os requisitos da lei.',
         },
       ],
     },
     {
-      slug: 'habilitacao-para-casamento',
+      slug: 'direito-agrario',
       page: true,
-      title: 'Habilitação para casamento de pessoas privadas de liberdade',
-      description: 'O sonho do casamento muitas vezes é deixado de lado pela dificuldade e burocracia. O escritório se estruturou para realizá-lo, com apoio processual, documental e pessoal.',
-      icon: 'fa-solid fa-ring',
-      pageTitle: 'Casamento com pessoa privada de liberdade: habilitação e apoio completo',
-      intro: 'Casar com uma pessoa que está presa envolve burocracia e etapas específicas. O escritório oferece apoio processual, documental e pessoal para que o casamento aconteça.',
+      title: 'Direito agrário',
+      description: 'Atuação para produtores e proprietários rurais, incluindo disputas bancárias que ameaçam as finanças da propriedade.', // CONFIRMAR: o texto do site antigo para esta área parecia ser um modelo genérico
+      icon: 'fa-solid fa-wheat-awn',
+      pageTitle: 'Advogado agrário no Rio de Janeiro: crédito rural, dívidas e propriedade',
+      intro: 'Dívidas e contratos rurais podem colocar a propriedade em risco. O escritório analisa o contrato, explica as regras bancárias em linguagem clara e conduz o caso com estratégia.',
       topics: [
-        'Orientação sobre a documentação necessária',
-        'Habilitação para o casamento',
-        'Organização do ato junto à unidade prisional',
-        'Apoio processual quando necessário',
+        'Análise de contratos e cédulas de crédito rural',
+        'Dívidas e financiamentos rurais',
+        'Orientação sobre propriedade e arrendamento rural',
+        'Estratégia processual para proteger a propriedade',
       ],
       faq: [
         {
-          question: 'Uma pessoa presa pode se casar?',
-          answer: 'É possível. Há etapas e burocracia próprias, e o escritório auxilia em todo o caminho, com apoio processual, documental e pessoal.',
+          question: 'O escritório atua em dívidas de produtores rurais?',
+          answer: 'Sim. A análise do contrato e das condições do crédito rural é parte da atuação, em conjunto com a área bancária do escritório.',
         },
         {
-          question: 'Quais documentos são necessários?',
-          answer: 'Em geral, documentos de identificação e certidões dos noivos, além do que o cartório e a unidade prisional exigirem. A lista varia conforme o caso, e o escritório orienta cada etapa.',
+          question: 'Preciso levar quais documentos?',
+          answer: 'Em geral, documentos pessoais, contratos ou cédulas, comprovantes de pagamento e documentos da propriedade. A equipe orienta conforme o caso.',
         },
       ],
     },
     {
-      slug: 'defesa-processo-disciplinar',
+      slug: 'direito-criminal',
       page: true,
-      title: 'Defesa em processo administrativo disciplinar',
-      description: 'Quando a pessoa presa é acusada de infringir uma norma, pode receber falta leve, média ou grave. A falta grave impede o usufruto de benefícios, por isso a defesa técnica e eficaz é importante.',
-      icon: 'fa-solid fa-shield-halved',
-      pageTitle: 'Defesa em processo disciplinar no presídio: falta grave e seus efeitos',
-      intro: 'A falta grave pode impedir o acesso a benefícios previstos em lei. Uma defesa técnica busca evitar a falta ou reduzir seus efeitos, resguardando os direitos do reeducando.',
+      title: 'Direito criminal',
+      description: 'A liberdade é o maior bem de um indivíduo. Defesa criminal atenta, com escuta paciente e acompanhamento em cada etapa.',
+      icon: 'fa-solid fa-scale-balanced',
+      pageTitle: 'Advogado criminalista no Rio de Janeiro: defesa em inquérito e processo criminal',
+      intro: 'Quando alguém é acusado em um processo criminal, orientação rápida e defesa técnica fazem diferença. O escritório ouve o caso com atenção e acompanha cada etapa.',
       topics: [
-        'Defesa em procedimento disciplinar na unidade prisional',
-        'Acompanhamento de faltas leves, médias e graves',
-        'Atuação para resguardar benefícios do reeducando',
+        'Orientação em inquérito policial',
+        'Defesa em processo criminal',
+        'Acompanhamento de audiências e prazos',
       ],
       faq: [
         {
-          question: 'O que é falta grave?',
-          answer: 'É a infração disciplinar mais séria no cumprimento da pena. Ela pode afetar benefícios, levar à regressão de regime e reduzir dias remidos, entre outros efeitos.',
+          question: 'Quando devo procurar um advogado criminalista?',
+          answer: 'O quanto antes: ao receber uma intimação, ser chamado em uma delegacia ou ao saber de uma investigação. Quanto mais cedo, mais opções de defesa.',
         },
         {
-          question: 'Por que a defesa é importante?',
-          answer: 'Porque o procedimento deve respeitar o direito de defesa, e uma defesa técnica busca evitar a aplicação da falta ou reduzir suas consequências. Não é possível garantir resultado, pois cada caso depende das provas e da decisão.',
+          question: 'O escritório garante o resultado do processo?',
+          answer: 'Não. O escritório atua com defesa técnica e transparência, mas o resultado depende das provas e da decisão da Justiça.',
         },
       ],
     },
     {
-      slug: 'livramento-condicional',
+      slug: 'consultoria-juridica',
       page: true,
-      title: 'Pedidos de livramento condicional',
-      description: 'A lei permite que a pessoa presa cumpra parte do restante da pena em liberdade.',
-      icon: 'fa-solid fa-lock-open',
-      pageTitle: 'Pedido de livramento condicional: cumprir parte da pena em liberdade',
-      intro: 'O livramento condicional permite cumprir parte do restante da pena em liberdade, quando os requisitos da lei são atendidos. O escritório analisa o processo e acompanha o pedido.',
+      title: 'Consultoria e estratégia processual',
+      description: 'Definir objetivos jurídicos claros impulsiona ações decisivas: avaliação jurídica gratuita e estratégia sob medida para o seu caso.', // CONFIRMAR: gratuidade da avaliação (consta no site antigo)
+      icon: 'fa-solid fa-lightbulb',
+      pageTitle: 'Consultoria jurídica e estratégia processual no Rio de Janeiro',
+      intro: 'Cada interação revela uma oportunidade de proteger direitos ou resolver disputas. Começamos com uma avaliação jurídica para definir objetivos claros e o melhor caminho.',
       topics: [
-        'Análise dos requisitos do livramento condicional',
-        'Elaboração e acompanhamento do pedido',
-        'Orientação sobre as condições durante o livramento',
+        'Avaliação jurídica inicial',
+        'Definição de objetivos e estratégia do caso',
+        'Consultoria preventiva em contratos',
       ],
       faq: [
         {
-          question: 'O que é livramento condicional?',
-          answer: 'É o benefício que permite à pessoa presa cumprir parte do restante da pena em liberdade, desde que preencha os requisitos legais e cumpra as condições fixadas pela Justiça.',
+          question: 'A avaliação jurídica é gratuita?',
+          answer: 'O site anterior do escritório divulgava uma avaliação jurídica gratuita. Confirme as condições atuais pelo WhatsApp.', // CONFIRMAR
         },
         {
-          question: 'Quais são os requisitos?',
-          answer: 'De modo geral, é preciso cumprir parte da pena (a fração varia conforme o caso), ter comportamento satisfatório e atender aos demais requisitos da lei. O advogado analisa o processo para indicar se o pedido é viável.',
+          question: 'Para quem serve a consultoria?',
+          answer: 'Para pessoas e empresas que querem entender seus direitos, analisar um contrato ou definir a melhor estratégia antes de agir.',
         },
       ],
     },
     {
-      slug: 'atendimento-online',
+      slug: 'escritorio-barra-da-tijuca',
       page: false,
-      title: 'Atendimento Online',
-      description: 'Atendimento jurídico online, com atuação em todo o Brasil.',
-      icon: 'fa-solid fa-laptop',
+      title: 'Escritório na Barra da Tijuca',
+      description: 'Atendimento presencial na Avenida das Américas, 4200, bloco C1, sala 305, Barra da Tijuca, Rio de Janeiro/RJ.',
+      icon: 'fa-solid fa-building',
     },
     {
-      slug: 'atendimento-presencial',
+      slug: 'escritorio-sepetiba',
       page: false,
-      title: 'Atendimento Presencial',
-      description: 'Atendimento presencial na Avenida Presidente Kubitschek, 474, sala 101, Centro, Betim/MG.',
+      title: 'Escritório em Sepetiba',
+      description: 'Atendimento presencial na Estrada de Sepetiba, 5.615, sala 4, Sepetiba, Rio de Janeiro/RJ.',
       icon: 'fa-solid fa-building',
     },
   ],
@@ -836,12 +776,12 @@ googleReviews: {
     {
       icon: 'mdi-message-text-outline',
       title: 'Primeiro contato',
-      text: 'Fale com o escritório pelo WhatsApp ou responda ao questionário do site e conte a situação da pessoa que está cumprindo pena.',
+      text: 'Fale com o escritório pelo WhatsApp ou responda ao questionário do site e conte a sua situação.',
     },
     {
       icon: 'mdi-account-search-outline',
-      title: 'Análise do processo',
-      text: 'O advogado analisa o processo de execução para entender a situação atual, os prazos e os benefícios possíveis.',
+      title: 'Análise do caso',
+      text: 'O advogado analisa contratos, documentos e prazos para entender a situação e as possibilidades de atuação.',
     },
     {
       icon: 'mdi-file-sign',
@@ -853,47 +793,43 @@ googleReviews: {
   faq: [
     {
       question: 'Quais serviços o escritório oferece?',
-      answer: 'O escritório atua em execução penal: pedidos de progressão de regime, relatórios processuais, habilitação para casamento de pessoas privadas de liberdade, defesa em processo administrativo disciplinar e pedidos de livramento condicional.',
+      answer: 'O escritório é especializado em Direito Bancário, Previdenciário e Agrário, e também atua em Direito Criminal, com consultoria jurídica e estratégia processual.',
     },
     {
-      question: 'O escritório atende em todo o Brasil?',
-      answer: 'Sim. O escritório atua em todo o Brasil, com atendimento online, e também atende presencialmente em Betim/MG.',
+      question: 'Onde ficam os escritórios?',
+      answer: 'Avenida das Américas, 4200, bloco C1, sala 305, Barra da Tijuca, e Estrada de Sepetiba, 5.615, sala 4, Sepetiba, ambos no Rio de Janeiro/RJ.',
     },
     {
-      question: 'Onde fica o escritório?',
-      answer: 'Avenida Presidente Kubitschek, 474, sala 101, 1º andar, Centro, Betim/MG.',
+      question: 'O escritório atende online?',
+      answer: 'Sim, o atendimento pode começar pelo WhatsApp, e o escritório também atende presencialmente nas duas unidades.', // CONFIRMAR: abrangência do atendimento online
     },
     {
-      question: 'O que é execução penal?',
-      answer: 'É a fase em que a pena imposta pela Justiça é cumprida e acompanhada. Nela são analisados temas como progressão de regime, livramento condicional e faltas disciplinares.',
+      question: 'O banco pode me obrigar a contratar seguro para liberar um empréstimo?',
+      answer: 'Não. A venda casada é ilegal. Se isso aconteceu com você, guarde as provas e procure orientação.',
     },
     {
-      question: 'Um familiar pode contratar o escritório?',
-      answer: 'Sim. A família pode procurar o escritório e iniciar o atendimento. A atuação no processo depende da procuração da própria pessoa presa, e a equipe orienta como providenciá-la.',
+      question: 'O que é o CET e por que ele importa?',
+      answer: 'O Custo Efetivo Total reúne juros, tarifas e encargos do contrato. É nele que ficam as taxas que encarecem o crédito, por isso deve ser analisado antes de assinar.',
     },
     {
-      question: 'Como funciona a progressão de regime?',
-      answer: 'A pena é cumprida de forma progressiva: conforme o tempo cumprido e o comportamento, a pessoa pode passar para um regime mais brando, como do fechado para o semiaberto e do semiaberto para o aberto. Cada caso exige análise do processo.',
+      question: 'Quais provas devo guardar em um problema com o banco?',
+      answer: 'Contrato assinado, extratos, boletos, prints de simulações, conversas de WhatsApp e e-mails com o gerente. O banco deve cumprir o que prometeu.',
     },
     {
-      question: 'O que é livramento condicional?',
-      answer: 'É o benefício que permite cumprir parte do restante da pena em liberdade, quando os requisitos da lei são atendidos e mediante o cumprimento de condições.',
+      question: 'O escritório atua com direito previdenciário?',
+      answer: 'Sim. O escritório orienta e atua em temas do INSS, como aposentadoria, benefícios negados e auxílios. Cada caso exige análise individual.',
     },
     {
-      question: 'O que é falta grave e por que ela preocupa?',
-      answer: 'É a infração disciplinar mais séria no cumprimento da pena. Pode impedir benefícios, levar à regressão de regime e reduzir dias remidos. Por isso, a defesa técnica no procedimento disciplinar é importante.',
+      question: 'O escritório atua com produtores rurais?',
+      answer: 'Sim. O escritório atua em Direito Agrário, incluindo disputas bancárias e contratos de crédito rural.',
     },
     {
-      question: 'O que é o relatório processual?',
-      answer: 'É um relatório que explica, de forma clara e objetiva, a situação atual e futura do processo de execução e os benefícios a que a pessoa pode ter direito.',
-    },
-    {
-      question: 'Uma pessoa presa pode se casar?',
-      answer: 'É possível. Há etapas e burocracia próprias, e o escritório oferece apoio processual, documental e pessoal para a habilitação e a realização do casamento.',
+      question: 'Um familiar pode procurar o escritório em meu nome?',
+      answer: 'Sim, o atendimento pode ser iniciado por um familiar. A atuação formal no caso exige procuração da própria pessoa, e a equipe orienta como providenciá-la.',
     },
     {
       question: 'O escritório garante o resultado?',
-      answer: 'Não. Nenhum advogado pode garantir resultado. O escritório analisa o processo, orienta com transparência e atua com defesa técnica; a decisão cabe ao juízo da execução.',
+      answer: 'Não. Nenhum advogado pode garantir resultado. O escritório analisa o caso, orienta com transparência e atua com defesa técnica; a decisão cabe ao juízo ou ao órgão responsável.',
     },
     {
       question: 'Minhas respostas do questionário ficam guardadas no site?',
@@ -903,31 +839,33 @@ googleReviews: {
 
   team: [
     {
-      name: 'Arlley Abelha',
-      role: 'Advogado · OAB/MG 101.840',
-      description: 'Dirige o escritório de assistência jurídica a pessoas privadas de liberdade e seus familiares, com atuação em execução penal em todo o Brasil.',
-      photo: '/IMGADV/primeiro.png', // CONFIRMAR: trocar pela foto do Arlley
+      name: 'Marcos Ferreira',
+      role: 'Presidente e Advogado Líder', // CONFIRMAR: incluir OAB
+      description: 'Presidente da MF Soluções. Acredita que uma defesa eficaz transforma disputas complexas em resoluções claras, capacitando os clientes em cada etapa.',
+      photo: '/IMGADV/segundo.png', // CONFIRMAR: trocar pela foto do Marcos Ferreira
       instagram: '', // CONFIRMAR
       linkedin: '',
     },
   ],
 
+  // O site antigo exibia 2 depoimentos que pareciam modelos (fotos de banco de imagens
+  // e texto cortado). Não foram usados. Adicione apenas depoimentos reais e autorizados.
   testimonials: [],
 
   seo: {
-    title: 'Arlley Abelha | Advogado de Execução Penal em Betim/MG e todo o Brasil',
-    description: 'Assistência jurídica a pessoas privadas de liberdade e seus familiares: progressão de regime, livramento condicional e mais. Betim/MG e todo o Brasil.',
+    title: 'MF Soluções | Advogados Bancário, Previdenciário e Agrário no Rio de Janeiro',
+    description: 'Especialistas em Direito Bancário, Previdenciário e Agrário, com ética, agilidade e eficiência. Escritórios na Barra da Tijuca e em Sepetiba, Rio de Janeiro/RJ.',
     // Endereço público do site (https://www.seudominio.com.br), sem barra no final.
     // Necessário para a imagem de compartilhamento, canonical e sitemap.xml.
-    siteUrl: '',
+    siteUrl: '', // CONFIRMAR: o domínio antigo era https://mfsolucoes.com
     ogImage: '/og-image.jpg',
-    ogImageAlt: 'Arlley Abelha Advocacia · Execução Penal',
+    ogImageAlt: 'MF Soluções · Soluções inteligentes para problemas reais',
   },
 
   whatsappWidget: {
     messages: [
-      'Precisando de um especialista em execução penal? Fale com o escritório de Arlley Abelha.',
-      'Atendimento humanizado para pessoas privadas de liberdade e seus familiares. Atuamos em todo o Brasil.',
+      'Problemas com banco, INSS ou dívidas rurais? Fale com os especialistas da MF Soluções.',
+      'Ética, agilidade e eficiência. Protegendo seus direitos financeiros com dedicação.',
     ],
     firstDelay: 12_000,
     interval: 60_000,
